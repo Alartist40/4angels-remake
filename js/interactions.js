@@ -25,22 +25,66 @@ document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('content-modal');
     const modalBody = modal?.querySelector('.modal-body');
     const modalClose = modal?.querySelector('.modal-close');
+    let lastFocusedElement = null;
 
-    function openModal(contentHtml) {
+    function openModal(contentHtml, triggerBtn) {
         if (!modal || !modalBody) return;
+
+        lastFocusedElement = triggerBtn;
         modalBody.innerHTML = contentHtml;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
+
+        // Accessibility: Focus the close button
+        setTimeout(() => {
+            modalClose?.focus();
+        }, 100);
     }
 
     function closeModal() {
         if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = '';
+
+        // Accessibility: Return focus
+        if (lastFocusedElement) {
+            lastFocusedElement.focus();
+        }
+
         // Stop any playing audio in modal if necessary
         const modalAudio = modalBody.querySelector('audio');
         if (modalAudio) modalAudio.pause();
     }
+
+    // Keyboard Accessibility
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && modal?.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Focus Trap
+    modal?.addEventListener('keydown', (e) => {
+        if (e.key !== 'Tab' || !modal.classList.contains('active')) return;
+
+        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+        if (focusableElements.length === 0) return;
+
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstElement) {
+                lastElement.focus();
+                e.preventDefault();
+            }
+        } else {
+            if (document.activeElement === lastElement) {
+                firstElement.focus();
+                e.preventDefault();
+            }
+        }
+    });
 
     modalClose?.addEventListener('click', closeModal);
     modal?.addEventListener('click', (e) => {
@@ -107,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = btn.getAttribute('data-target');
             const content = document.getElementById(targetId);
             if (content) {
-                openModal(content.innerHTML);
+                openModal(content.innerHTML, btn);
             }
         }
     });
