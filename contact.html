@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>お問い合わせ | Contact - 正丸教会</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        input, textarea {
+            padding: 0.8rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            background: var(--accent-color);
+            font-family: inherit;
+        }
+        button {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+            <nav class="main-nav" aria-label="Main Navigation">
+                <a href="index.html" class="nav-logo">4ANGELS</a>
+                <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="nav-link">ホーム<span class="en">Home</span></a></li>
+                    <li><a href="about.html" class="nav-link">教会紹介<span class="en">About</span></a></li>
+                    <li><a href="publishing.html" class="nav-link">出版物<span class="en">Publishing</span></a></li>
+                    <li><a href="live.html" class="nav-link">礼拝生放送<span class="en">Live</span></a></li>
+                    <li><a href="audio.html" class="nav-link">説教オーディオ<span class="en">Sermons</span></a></li>
+                    <li><a href="study.html" class="nav-link">聖書を学ぶ<span class="en">Bible Study</span></a></li>
+                    <li><a href="contact.html" class="nav-link active">お問い合わせ<span class="en">Contact</span></a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main class="bento-grid">
+            <section class="bento-tile span-2 row-2">
+                <h2 class="tile-title">メッセージを送る</h2>
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">お名前 / Name</label>
+                        <input type="text" id="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">メールアドレス / Email</label>
+                        <input type="email" id="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">メッセージ / Message</label>
+                        <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit">送信する / Send</button>
+                </form>
+            </section>
+
+            <section class="bento-tile span-2">
+                <h2 class="tile-title">連絡先 / Contact Info</h2>
+                <p class="tile-description">
+                    〒368-0071<br>
+                    埼玉県秩父郡横瀬町芦ヶ久保1607-1<br><br>
+                    TEL: 0494-22-0465<br>
+                    Email: sdarm.shomaru@gmail.com
+                </p>
+            </section>
+
+            <section class="bento-tile span-2 row-2">
+                <h2 class="tile-title">アクセス / Access</h2>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.4935678435997!2d139.15051526960332!3d35.96286399828111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eccc36af17951%3A0x287862fe4cfcc1bc!2sSeventh%20Day%20Adobenchisutokaikakuundoshomaru%20Church!5e1!3m2!1sko!2sjp!4v1690075946219!5m2!1sko!2sjp" width="100%" height="300" style="border:0; border-radius: var(--radius);" allowfullscreen="" loading="lazy"></iframe>
+            </section>
+        </main>
+
+        <footer class="main-footer">
+            <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
+        </footer>
+    </div>
+    <script src="js/navigation.js"></script>
+    <script src="js/interactions.js"></script>
+</body>
+</html>
