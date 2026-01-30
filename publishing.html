@@ -42,14 +42,14 @@
 
             <section class="bento-tile span-2">
                 <h2 class="tile-title">永遠の真理 / Eternal Truth</h2>
-                <p class="tile-description">信仰の糧となる出版物。</p>
-                <div class="tile-footer"><a href="#" class="btn-more">読む →</a></div>
+                <p class="tile-description">信仰の糧となる月刊の出版物です。過去のアーカイブを閲覧いただけます。</p>
+                <div class="tile-footer"><button class="btn-more expand-btn" data-target="pub-eternal-truth">読む →</button></div>
             </section>
 
             <section class="bento-tile span-2">
                 <h2 class="tile-title">安息日学校教科 / Sabbath Bible Lesson</h2>
-                <p class="tile-description">毎週の聖書研究ガイド。</p>
-                <div class="tile-footer"><a href="#" class="btn-more">読む →</a></div>
+                <p class="tile-description">毎週の聖書研究ガイドです。各期のテーマに沿った学びを提供します。</p>
+                <div class="tile-footer"><button class="btn-more expand-btn" data-target="pub-sabbath-lesson">読む →</button></div>
             </section>
         </main>
 
@@ -57,6 +57,41 @@
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
     </div>
+
+    <!-- Modal Structure -->
+    <div id="content-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Content -->
+    <div class="hidden-content">
+        <div id="pub-eternal-truth">
+            <h2>永遠の真理 / Eternal Truth</h2>
+            <p>最新号および過去のアーカイブ(PDF)を閲覧いただけます。</p>
+            <ul>
+                <li><a href="http://4angels.jp/wp/ebook/2026/et202601-02_web.pdf" target="_blank">2026年 01−02月号</a></li>
+                <li><a href="http://4angels.jp/wp/ebook/2025/et20251112.pdf" target="_blank">2025年 11−12月号</a></li>
+                <li><a href="http://4angels.jp/wp/ebook/2025/et20250910.pdf" target="_blank">2025年 09−10月号</a></li>
+                <li>...他 2011年からのアーカイブが教会の図書室に保管されています。</li>
+            </ul>
+        </div>
+
+        <div id="pub-sabbath-lesson">
+            <h2>安息日学校教科 / Sabbath Bible Lesson</h2>
+            <p>聖書を体系的に学ぶためのガイドです。</p>
+            <ul>
+                <li><a href="http://4angels.jp/wp/ebook/2026/sbl01-2026web.pdf" target="_blank">2026年 No.1 小預言者から学ぶ見どころ</a></li>
+                <li><a href="http://4angels.jp/wp/ebook/2025/sbl04-2025.pdf" target="_blank">2025年 No.4 ヨハネによる福音からの教訓 (4)</a></li>
+                <li><a href="http://4angels.jp/wp/ebook/2024/sbl01-2024.pdf" target="_blank">2024年 No.1 パウロによる福音 : へブル書</a></li>
+            </ul>
+        </div>
+    </div>
+
     <script src="js/navigation.js"></script>
     <script src="js/interactions.js"></script>
 </body>

@@ -3,6 +3,8 @@
 ## Overview
 A hyper-minimalist, UX-first redesign of the Shomaru Church (4angels.jp) website. This project reconstructs the church's digital presence as a "spatial environment" using a Bento Grid architecture, ensuring that spiritual resources, live broadcasts, and community information are intuitively accessible.
 
+This redesign captures and preserves the entirety of the original site's content, including over 50 audio sermons, 37 fundamental beliefs, and extensive bible study materials, reimagining them through a modern, responsive interface.
+
 ## Language
 ja-JP (Japanese) with Bilingual Navigation (English)
 

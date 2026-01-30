@@ -63,13 +63,30 @@
             <!-- Mission: Church Mission -->
             <section class="bento-tile span-2">
                 <h3 class="tile-title">【教会の使命】</h3>
-                <p class="tile-description">教会は人類救済のために神がお定めになった機関である。教会は奉仕するために組織された。その使命は世界に福音を伝えることである。</p>
+                <p class="tile-description">教会は人類救済のために神がお定めになった機関である。その使命は世界に福音を伝えることである。</p>
+                <div class="tile-footer">
+                    <button class="btn-more expand-btn" data-target="content-mission">詳しく読む →</button>
+                </div>
             </section>
 
             <!-- Succession -->
             <section class="bento-tile span-2">
                 <h3 class="tile-title">【キリストの教会の継承】</h3>
-                <p class="tile-description">いつの時代にも主は見張りびとお持ちになっていた。彼らは、彼らが生きた世代に忠実なあかしを立ててきたのである。</p>
+                <p class="tile-description">キリストがお認めになるご自分の教会はだれが構成してきたのでしょうか？</p>
+                <div class="tile-footer">
+                    <button class="btn-more expand-btn" data-target="content-succession">詳しく読む →</button>
+                </div>
+            </section>
+
+            <!-- Beliefs Overview -->
+            <section class="bento-tile span-4">
+                <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                    <div>
+                        <h3 class="tile-title">信仰の原則 / Principles of Faith</h3>
+                        <p class="tile-description">私たちが大切にしている37の信仰の柱について。</p>
+                    </div>
+                    <button class="btn-more expand-btn" data-target="content-beliefs">全ての原則を見る →</button>
+                </div>
             </section>
 
             <!-- Map -->
@@ -82,6 +99,79 @@
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="content-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Content -->
+    <div class="hidden-content">
+        <div id="content-mission">
+            <h2>【教会の使命】</h2>
+            <p>「それは今、天上にあるもろもろの支配や権威が、教会をとおして、神の多種多様な知恵を知るに至るためであって、わたしたちの主キリスト・イエスにあって実現された神の永遠の目的にそうものである。」エペソ3:10, 11</p>
+            <p>教会は人類救済のために神がお定めになった機関である。教会は奉仕するために組織された。その使命は世界に福音を伝えることである。教会を通して神の満ちあふれる豊かさを世界に反映させることが、神のはじめからのご計画であった。暗やみから驚くべき光に招き入れられた教会員たちは、神の栄光をあらわさなければならない。教会はキリストの恵みに富んだ宝庫であり、教会を通して神の愛がついには『天上にあるもろもろの支配や権威』に対してさえも十分明らかに示されるのである。</p>
+        </div>
+
+        <div id="content-succession">
+            <h2>【キリストの教会の継承】</h2>
+            <p>神様が世のはじめから持っておられる教会は、どのように継承されてきたのでしょうか？</p>
+            <p>自分たちこそ、神の民だと自称していた人々に、イエス様は次のように言われました。「もしアブラハムの子であるなら、アブラハムのわざをするがよい」（ヨハネ8:39）。</p>
+            <p>歴史は繰り返されてきました。キリストが語られるとき、いつも二種類の人に分かれました。その御声に従って、キリストと共にとどまる「残りの子ら」と、去っていく者です。常に、与えられたみ言葉を受け入れて残る者たちがこのお方の教会を構成してきたのです。</p>
+        </div>
+
+        <div id="content-beliefs">
+            <h2>信仰の原則 / Principles of Faith</h2>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; font-size: 0.9rem;">
+                <ol>
+                    <li><strong>神</strong>: 唯一の神。無限の知恵と全能の力。</li>
+                    <li><strong>イエス・キリスト</strong>: 神の御子、唯一の仲保者。</li>
+                    <li><strong>聖霊</strong>: 地上におけるキリストの代理者。</li>
+                    <li><strong>聖書</strong>: 神の霊感による御言葉、人生の指針。</li>
+                    <li><strong>神の律法</strong>: 永遠不変の十戒(道徳律)。</li>
+                    <li><strong>安息日</strong>: 第七日目、創造の記念日。</li>
+                    <li><strong>礼典律</strong>: 十字架で廃された象徴的掟。</li>
+                    <li><strong>礼典律の安息日</strong>: 影としての安息日。</li>
+                    <li><strong>恵み</strong>: キリストによる罪の赦し。</li>
+                    <li><strong>改心</strong>: 悔い改めと新しい命。</li>
+                    <li><strong>バプテスマ</strong>: 全身浸礼による信仰告白。</li>
+                    <li><strong>主の晩餐</strong>: キリストの死を記念する会食。</li>
+                    <li><strong>洗足</strong>: 謙遜と一致の聖なる行為。</li>
+                    <li><strong>2300日の預言</strong>: 1844年の聖所の清め。</li>
+                    <li><strong>三天使のメッセージ</strong>: 終わりの時代の警告。</li>
+                    <li><strong>大いなる叫び</strong>: 聖霊の注ぎと最後の証。</li>
+                    <li><strong>預言の霊</strong>: 教会に与えられた啓示の賜物。</li>
+                    <li><strong>結婚</strong>: 神が制定された聖なる制度。</li>
+                </ol>
+                <ol start="19">
+                    <li><strong>節制と健康改革</strong>: 身体は聖霊の宮。</li>
+                    <li><strong>国家の権威</strong>: 神の意志に反しない限りの服従。</li>
+                    <li><strong>14万4千人の封印</strong>: 勝利を得た民の数。</li>
+                    <li><strong>主の教会</strong>: 神の家族、キリストの体。</li>
+                    <li><strong>教会の事務</strong>: 牧師、長老、執事の選任。</li>
+                    <li><strong>教会への受け入れ</strong>: 信仰の告白。</li>
+                    <li><strong>教会員の義務</strong>: 愛と奉仕の精神。</li>
+                    <li><strong>教会の規律</strong>: 秩序ある信仰生活。</li>
+                    <li><strong>除名</strong>: 原則に反する場合の措置。</li>
+                    <li><strong>什一</strong>: 神への感謝としての献金。</li>
+                    <li><strong>自由献金</strong>: 喜んでささげる供え物。</li>
+                    <li><strong>誓い</strong>: 真実な言葉の重み。</li>
+                    <li><strong>福音の宣教</strong>: 全世界への宣教委任。</li>
+                    <li><strong>教会の従順</strong>: 秩序への服従。</li>
+                    <li><strong>キリストの再臨</strong>: 目に見える栄光の来臨。</li>
+                    <li><strong>死者の状態</strong>: 復活までの眠り。</li>
+                    <li><strong>よみがえり</strong>: 義人と不義人の復活。</li>
+                    <li><strong>千年期</strong>: 天での裁きと地の荒廃。</li>
+                    <li><strong>新天新地</strong>: 永遠の幸福の住まい。</li>
+                </ol>
+            </div>
+        </div>
     </div>
 
     <script src="js/navigation.js"></script>

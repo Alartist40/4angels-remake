@@ -43,7 +43,7 @@
                     <h2 class="tile-title">2025年末祈祷週「全世界へ出て行って」</h2>
                     <p class="tile-description">2025年12月5日-14日。皆様の参加を心よりお待ちしております。</p>
                     <div class="tile-footer">
-                        <a href="#" class="btn-more">詳しく見る →</a>
+                        <button class="btn-more expand-btn" data-target="announcement-2025">詳しく見る →</button>
                     </div>
                 </div>
             </section>
@@ -113,6 +113,26 @@
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
+    </div>
+
+    <!-- Modal Structure -->
+    <div id="content-modal" class="modal-overlay">
+        <div class="modal-container">
+            <button class="modal-close" aria-label="Close Modal">&times;</button>
+            <div class="modal-body">
+                <!-- Content injected via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Hidden Content for Modals -->
+    <div class="hidden-content">
+        <div id="announcement-2025">
+            <h2>2025年末祈祷週「全世界へ出て行って」</h2>
+            <p class="date">開催期間: 2025年12月5日(金) 〜 14日(日)</p>
+            <p>「全世界へ行って、すべての造られたものに福音を宣べ伝えよ」(マルコ16:15)というキリストの大委任をテーマに、2025年の締めくくりとして祈祷週を開催いたします。</p>
+            <p>皆様とともに祈りとみ言葉を分かち合えることを心より楽しみにしております。詳細は追って当サイトおよび公式LINEにてお知らせいたします。</p>
+        </div>
     </div>
 
     <script src="js/navigation.js"></script>
