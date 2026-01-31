@@ -33,77 +33,111 @@
             </nav>
         </header>
 
-        <main class="bento-grid">
-            <section class="bento-tile span-4">
-                <span class="tile-category">Bible Study</span>
-                <h1 class="tile-title" style="font-size: 2.5rem;">聖書を学ぶ</h1>
-                <p class="tile-description">現代の真理、健康、安息日についての学び。</p>
+        <main>
+            <section class="hero-bento">
+                <div class="bento-card hero-card">
+                    <span class="card-label">BIBLE STUDY</span>
+                    <h1>聖書を学ぶ</h1>
+                    <p>現代の真理、健康、安息日など、聖書が解き明かす重要なテーマについて深く学びましょう。</p>
+                </div>
             </section>
 
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">現代の真理 / Present Truth</h2>
-                <p class="tile-description">「神の憐れみの最後の招き」「第三天使の大いなる叫び」など、時代に必要なメッセージを学びます。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="study-present-truth">学ぶ →</button></div>
-            </section>
+            <section class="study-grid">
+                <!-- Present Truth -->
+                <div class="bento-card">
+                    <span class="card-label">現代の真理</span>
+                    <h2>研究 1: 神の律法と福音</h2>
+                    <p>律法と福音の調和、そしてキリストがどのように律法を全うされたのかを学びます。</p>
+                    <button class="read-more" data-modal="modal-pt1">全文を読む</button>
+                </div>
 
-            <section class="bento-tile">
-                <h2 class="tile-title">健康 / Health</h2>
-                <p class="tile-description">身体と精神の調和を保つための「健康の法則」について。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="study-health">学ぶ →</button></div>
-            </section>
+                <div class="bento-card">
+                    <span class="card-label">現代の真理</span>
+                    <h2>研究 2: 安息日の起源と重要性</h2>
+                    <p>創造の時から続く安息日の神聖さと、それが現代において持つ意味を探ります。</p>
+                    <button class="read-more" data-modal="modal-pt2">全文を読む</button>
+                </div>
 
-            <section class="bento-tile">
-                <h2 class="tile-title">安息日 / Sabbath</h2>
-                <p class="tile-description">創造の記念日としての聖別された安息日の意味。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="study-sabbath">学ぶ →</button></div>
+                <div class="bento-card">
+                    <span class="card-label">現代の真理</span>
+                    <h2>研究 3: 三重の天使のメッセージ</h2>
+                    <p>黙示録14章に記された、再臨直前の世界に送られた最後の警告のメッセージです。</p>
+                    <button class="read-more" data-modal="modal-pt3">全文を読む</button>
+                </div>
+
+                <!-- Health -->
+                <div class="bento-card">
+                    <span class="card-label">健康</span>
+                    <h2>健康改革の原則</h2>
+                    <p>心身の健康と霊的な生活の密接な関係、そして聖書的なライフスタイルについて。</p>
+                    <button class="read-more" data-modal="modal-health">全文を読む</button>
+                </div>
+
+                <!-- Sabbath -->
+                <div class="bento-card">
+                    <span class="card-label">安息日</span>
+                    <h2>主の日：第七日安息日</h2>
+                    <p>なぜ土曜日が安息日なのか？聖書と歴史の証言からその根拠を明らかにします。</p>
+                    <button class="read-more" data-modal="modal-sabbath">全文を読む</button>
+                </div>
             </section>
         </main>
+
+        <!-- Modals -->
+        <div id="modal-pt1" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>研究 1: 神の律法と福音</h2>
+                <div class="modal-body">
+                    <p>神の律法は、神の品性の写しであり、永遠不変のものです。福音は、罪人が律法の要求を満たし、救いに至るための唯一の道です...</p>
+                    <p>(PT1の全文がここに入ります。実際にはfetchしたテキストに基づいた詳細な内容を配置します。)</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-pt2" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>研究 2: 安息日の起源と重要性</h2>
+                <div class="modal-body">
+                    <p>第七日安息日は、エデンにおいて神によって制定されました。これは創造の記念日であり、私たちが創造主を認める印です...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-pt3" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>研究 3: 三重の天使のメッセージ</h2>
+                <div class="modal-body">
+                    <p>第一の天使は「神を恐れ、神に栄光を帰せよ」と告げ、第二の天使は「バビロンは倒れた」と叫び、第三の天使は獣の刻印を避けるよう警告します...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-health" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>健康改革の原則</h2>
+                <div class="modal-body">
+                    <p>「あなたがたの体は、神から授かって自分の中に宿っておられる聖霊の宮であることを、知らないのですか。」健康は神からの賜物であり、維持すべき義務です...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-sabbath" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <h2>主の日：第七日安息日</h2>
+                <div class="modal-body">
+                    <p>聖書の中で「主の日」と呼ばれているのは第七日安息日（土曜日）だけです。歴史の中でどのように人間がこれを変えようとしたかを学びます...</p>
+                </div>
+            </div>
+        </div>
 
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="content-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="詳細内容 / Detailed Content">
-        <div class="modal-container">
-            <button class="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-body">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Hidden Content -->
-    <div class="hidden-content">
-        <div id="study-present-truth">
-            <h2>現代の真理 / Present Truth</h2>
-            <ul>
-                <li><strong>１. 「神の憐れみの最後の招き」</strong>: 黙示録14章のメッセージの重要性。</li>
-                <li><strong>２. 「第三天使の大いなる叫び」</strong>: 終わりの時代の警告。</li>
-                <li><strong>３. 「最も尊いメッセージ」</strong>: キリストの義による義認。</li>
-            </ul>
-        </div>
-
-        <div id="study-health">
-            <h2>健康 / Health ― 神様の賜物</h2>
-            <p>「愛する者よ。あなたのたましいがいつも恵まれていると同じく、あなたがすべてのことに恵まれ、またすこやかであるようにと、わたしは祈っている。」(ヨハネ第三2)</p>
-            <h3>健康の法則 (真の治療法)</h3>
-            <ul>
-                <li>新鮮な空気ときれいな水</li>
-                <li>日光と規則正しい生活</li>
-                <li>節制と正しい食事 (菜食)</li>
-                <li>適度な運動と休息</li>
-                <li>神の力に頼ること</li>
-            </ul>
-            <p>これら自然の法則に従うことが、身体と心の健康を保つ最良の方法です。</p>
-        </div>
-
-        <div id="study-sabbath">
-            <h2>安息日 / Sabbath ― 創造の記念日</h2>
-            <p>「安息日を覚えて、これを聖とせよ。六日のあいだ働いてあなたのすべてのわざをせよ。七日目はあなたの神、主の安息である」(出エジプト20:8-10)</p>
-            <p>安息日は単なる休日ではなく、天地の創造主を礼拝し、神との交わりを深めるために特別に聖別された日です。週の第七日目(土曜日)を安息日として守ることは、神様を愛し、その戒めに従うことのしるしです。</p>
-        </div>
     </div>
 
     <script src="js/navigation.js"></script>

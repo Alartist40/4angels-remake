@@ -10,6 +10,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+        .archive-item { background: #f0f4f8; padding: 0.75rem; border-radius: 8px; text-decoration: none; color: var(--primary-color); font-size: 0.9rem; text-align: center; transition: background 0.2s; }
+        .archive-item:hover { background: var(--secondary-color); color: white; }
+        .pub-section { margin-bottom: 4rem; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -33,23 +39,65 @@
             </nav>
         </header>
 
-        <main class="bento-grid">
-            <section class="bento-tile span-4">
-                <span class="tile-category">Publishing</span>
-                <h1 class="tile-title" style="font-size: 2.5rem;">出版物</h1>
-                <p class="tile-description">永遠の真理と安息日学校教科。</p>
+        <main>
+            <section class="hero-bento">
+                <div class="bento-card hero-card">
+                    <span class="card-label">PUBLISHING</span>
+                    <h1>出版物</h1>
+                    <p>信仰の糧となる「永遠の真理」と、体系的な聖書研究のための「安息日学校教科」。</p>
+                </div>
             </section>
 
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">永遠の真理 / Eternal Truth</h2>
-                <p class="tile-description">信仰の糧となる月刊の出版物です。過去のアーカイブを閲覧いただけます。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="pub-eternal-truth">読む →</button></div>
+            <section class="pub-section">
+                <div class="bento-card">
+                    <h2>永遠の真理 / Eternal Truth</h2>
+                    <p>2010年からの月刊アーカイブ。PDFで全文をお読みいただけます。</p>
+                    <div class="archive-grid">
+                        <a href="https://4angels.jp/et/et2026/" class="archive-item">2026年</a>
+                        <a href="https://4angels.jp/et/et2025/" class="archive-item">2025年</a>
+                        <a href="https://4angels.jp/et/et2024/" class="archive-item">2024年</a>
+                        <a href="https://4angels.jp/et/et2023/" class="archive-item">2023年</a>
+                        <a href="https://4angels.jp/et/et2022/" class="archive-item">2022年</a>
+                        <a href="https://4angels.jp/et/et2021/" class="archive-item">2021年</a>
+                        <a href="https://4angels.jp/et/et2020/" class="archive-item">2020年</a>
+                        <a href="https://4angels.jp/et/et2019/" class="archive-item">2019年</a>
+                        <a href="https://4angels.jp/et/et2018/" class="archive-item">2018年</a>
+                        <a href="https://4angels.jp/et/et2017/" class="archive-item">2017年</a>
+                        <a href="https://4angels.jp/et/et2016/" class="archive-item">2016年</a>
+                        <a href="https://4angels.jp/et/et2015/" class="archive-item">2015年</a>
+                        <a href="https://4angels.jp/et/et2014/" class="archive-item">2014年</a>
+                        <a href="https://4angels.jp/et/et2013/" class="archive-item">2013年</a>
+                        <a href="https://4angels.jp/et/et2012/" class="archive-item">2012年</a>
+                        <a href="https://4angels.jp/et/et2011/" class="archive-item">2011年</a>
+                        <a href="https://4angels.jp/et/et2010/" class="archive-item">2010年</a>
+                    </div>
+                </div>
             </section>
 
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">安息日学校教科 / Sabbath Bible Lesson</h2>
-                <p class="tile-description">毎週の聖書研究ガイドです。各期のテーマに沿った学びを提供します。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="pub-sabbath-lesson">読む →</button></div>
+            <section class="pub-section">
+                <div class="bento-card">
+                    <h2>安息日学校教科 / Sabbath Bible Lesson</h2>
+                    <p>世界共通の聖書研究ガイド。過去の期別の学びも網羅しています。</p>
+                    <div class="archive-grid">
+                        <a href="https://4angels.jp/sbl/sbl2026/" class="archive-item">2026年</a>
+                        <a href="https://4angels.jp/sbl/sbl2025/" class="archive-item">2025年</a>
+                        <a href="https://4angels.jp/sbl/sbl2024/" class="archive-item">2024年</a>
+                        <a href="https://4angels.jp/sbl/sbl2023/" class="archive-item">2023年</a>
+                        <a href="https://4angels.jp/sbl/sbl2022/" class="archive-item">2022年</a>
+                        <a href="https://4angels.jp/sbl/sbl2021/" class="archive-item">2021年</a>
+                        <a href="https://4angels.jp/sbl/sbl2020/" class="archive-item">2020年</a>
+                        <a href="https://4angels.jp/sbl/sbl2019/" class="archive-item">2019年</a>
+                        <a href="https://4angels.jp/sbl/sbl2018/" class="archive-item">2018年</a>
+                        <a href="https://4angels.jp/sbl/sbl2017/" class="archive-item">2017年</a>
+                        <a href="https://4angels.jp/sbl/sbl2016/" class="archive-item">2016年</a>
+                        <a href="https://4angels.jp/sbl/sbl2015/" class="archive-item">2015年</a>
+                        <a href="https://4angels.jp/sbl/sbl2014/" class="archive-item">2014年</a>
+                        <a href="https://4angels.jp/sbl/sbl2013/" class="archive-item">2013年</a>
+                        <a href="https://4angels.jp/sbl/sbl2012/" class="archive-item">2012年</a>
+                        <a href="https://4angels.jp/sbl/sbl2011/" class="archive-item">2011年</a>
+                        <a href="https://4angels.jp/sbl/sbl2010/" class="archive-item">2010年</a>
+                    </div>
+                </div>
             </section>
         </main>
 
@@ -58,41 +106,6 @@
         </footer>
     </div>
 
-    <!-- Modal Structure -->
-    <div id="content-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="詳細内容 / Detailed Content">
-        <div class="modal-container">
-            <button class="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-body">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Hidden Content -->
-    <div class="hidden-content">
-        <div id="pub-eternal-truth">
-            <h2>永遠の真理 / Eternal Truth</h2>
-            <p>最新号および過去のアーカイブ(PDF)を閲覧いただけます。</p>
-            <ul>
-                <li><a href="http://4angels.jp/wp/ebook/2026/et202601-02_web.pdf" target="_blank">2026年 01−02月号</a></li>
-                <li><a href="http://4angels.jp/wp/ebook/2025/et20251112.pdf" target="_blank">2025年 11−12月号</a></li>
-                <li><a href="http://4angels.jp/wp/ebook/2025/et20250910.pdf" target="_blank">2025年 09−10月号</a></li>
-                <li>...他 2011年からのアーカイブが教会の図書室に保管されています。</li>
-            </ul>
-        </div>
-
-        <div id="pub-sabbath-lesson">
-            <h2>安息日学校教科 / Sabbath Bible Lesson</h2>
-            <p>聖書を体系的に学ぶためのガイドです。</p>
-            <ul>
-                <li><a href="http://4angels.jp/wp/ebook/2026/sbl01-2026web.pdf" target="_blank">2026年 No.1 小預言者から学ぶ見どころ</a></li>
-                <li><a href="http://4angels.jp/wp/ebook/2025/sbl04-2025.pdf" target="_blank">2025年 No.4 ヨハネによる福音からの教訓 (4)</a></li>
-                <li><a href="http://4angels.jp/wp/ebook/2024/sbl01-2024.pdf" target="_blank">2024年 No.1 パウロによる福音 : へブル書</a></li>
-            </ul>
-        </div>
-    </div>
-
     <script src="js/navigation.js"></script>
-    <script src="js/interactions.js"></script>
 </body>
 </html>

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const tiles = document.querySelectorAll('.bento-tile');
+    const tiles = document.querySelectorAll('.bento-tile, .bento-card');
     tiles.forEach((tile, index) => {
         tile.style.transitionDelay = `${index * 0.05}s`;
         tile.classList.add('pre-reveal');
@@ -22,136 +22,87 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Modal Logic
-    const modal = document.getElementById('content-modal');
-    const modalBody = modal?.querySelector('.modal-body');
-    const modalClose = modal?.querySelector('.modal-close');
-    let lastFocusedElement = null;
+    const modal = document.getElementById('content-modal') || createModalElement();
+    const modalBody = modal.querySelector('.modal-body');
+    const modalClose = modal.querySelector('.modal-close');
 
-    function openModal(contentHtml, triggerBtn) {
-        if (!modal || !modalBody) return;
+    function createModalElement() {
+        const div = document.createElement('div');
+        div.id = 'content-modal';
+        div.className = 'modal-overlay';
+        div.innerHTML = `
+            <div class="modal-container">
+                <button class="modal-close" aria-label="Close Modal">&times;</button>
+                <div class="modal-body"></div>
+            </div>
+        `;
+        document.body.appendChild(div);
+        return div;
+    }
 
-        lastFocusedElement = triggerBtn;
+    function openModal(contentHtml) {
         modalBody.innerHTML = contentHtml;
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
-
-        // Accessibility: Focus the close button
-        setTimeout(() => {
-            modalClose?.focus();
-        }, 100);
     }
 
     function closeModal() {
-        if (!modal) return;
         modal.classList.remove('active');
         document.body.style.overflow = '';
-
-        // Accessibility: Return focus
-        if (lastFocusedElement) {
-            lastFocusedElement.focus();
-        }
-
-        // Stop any playing audio in modal if necessary
-        const modalAudio = modalBody.querySelector('audio');
-        if (modalAudio) modalAudio.pause();
     }
 
-    // Keyboard Accessibility
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal?.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    // Focus Trap
-    modal?.addEventListener('keydown', (e) => {
-        if (e.key !== 'Tab' || !modal.classList.contains('active')) return;
-
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (focusableElements.length === 0) return;
-
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-                lastElement.focus();
-                e.preventDefault();
-            }
-        } else {
-            if (document.activeElement === lastElement) {
-                firstElement.focus();
-                e.preventDefault();
-            }
-        }
-    });
-
-    modalClose?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
+    modalClose.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => {
         if (e.target === modal) closeModal();
     });
 
-    // Global Audio Player
-    let currentAudio = null;
-    let currentBtn = null;
+    // Audio Logic
+    const mainAudio = document.getElementById('main-audio');
+    const playerBar = document.getElementById('global-player');
+    const nowPlaying = document.querySelector('.now-playing');
 
-    function playAudio(url, btn) {
-        if (currentAudio && currentAudio.src === url) {
-            if (currentAudio.paused) {
-                currentAudio.play();
-                btn.innerHTML = 'pause';
-                btn.classList.add('playing');
-            } else {
-                currentAudio.pause();
-                btn.innerHTML = 'play_arrow';
-                btn.classList.remove('playing');
-            }
-            return;
+    document.querySelectorAll('.audio-card').forEach(card => {
+        const playBtn = card.querySelector('.play-btn');
+        const audioSrc = card.getAttribute('data-src');
+        const title = card.querySelector('h3').textContent;
+
+        if (playBtn && audioSrc) {
+            playBtn.addEventListener('click', () => {
+                if (mainAudio.src !== audioSrc) {
+                    mainAudio.src = audioSrc;
+                    nowPlaying.textContent = `再生中: ${title}`;
+                    playerBar.style.display = 'flex';
+                }
+
+                if (mainAudio.paused) {
+                    mainAudio.play();
+                    playBtn.textContent = '停止';
+                } else {
+                    mainAudio.pause();
+                    playBtn.textContent = '再生する';
+                }
+            });
         }
+    });
 
-        if (currentAudio) {
-            currentAudio.pause();
-            if (currentBtn) {
-                currentBtn.innerHTML = 'play_arrow';
-                currentBtn.classList.remove('playing');
-            }
-        }
-
-        currentAudio = new Audio(url);
-        currentBtn = btn;
-
-        currentAudio.play();
-        btn.innerHTML = 'pause';
-        btn.classList.add('playing');
-
-        currentAudio.onended = () => {
-            btn.innerHTML = 'play_arrow';
-            btn.classList.remove('playing');
-        };
-    }
-
-    // Event Delegation for Buttons
+    // Event Delegation for Content Expanders
     document.addEventListener('click', (e) => {
-        const target = e.target;
+        const btn = e.target.closest('.expand-btn, .read-more');
+        if (!btn) return;
 
-        // Audio buttons
-        if (target.classList.contains('play-audio') || target.closest('.play-audio')) {
-            const btn = target.classList.contains('play-audio') ? target : target.closest('.play-audio');
-            const url = btn.getAttribute('data-audio');
-            if (url) {
-                e.preventDefault();
-                playAudio(url, btn.querySelector('.material-icons') || btn);
-            }
-        }
-
-        // Read more / Expand buttons
-        if (target.classList.contains('expand-btn') || target.closest('.expand-btn')) {
-            e.preventDefault();
-            const btn = target.classList.contains('expand-btn') ? target : target.closest('.expand-btn');
-            const targetId = btn.getAttribute('data-target');
+        const targetId = btn.getAttribute('data-target') || btn.getAttribute('data-modal');
+        if (targetId) {
             const content = document.getElementById(targetId);
             if (content) {
-                openModal(content.innerHTML, btn);
+                openModal(content.innerHTML);
+            } else {
+                // Handle study.html where modal content is already in its own div
+                const targetModal = document.getElementById(targetId);
+                if (targetModal && targetModal.classList.contains('modal')) {
+                    const innerBody = targetModal.querySelector('.modal-body');
+                    const innerTitle = targetModal.querySelector('h2');
+                    openModal(`<h2>${innerTitle.innerHTML}</h2>${innerBody.innerHTML}`);
+                }
             }
         }
     });

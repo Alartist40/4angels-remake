@@ -14,8 +14,11 @@ The website is restructured into a multi-page Bento Grid architecture. Every pag
 
 - **About Us (about.html)**: The "Spiritual Foundation"
   - **Intro Tile**: "Welcome to Shomaru Church"
-  - **Principles Tile**: Link to "This We Believe."
+  - **Principles Tile**: Link to Detailed "信仰の原則" page.
   - **Mission Tiles**: Separate bento blocks for "House of God," "Body of Christ," and "Mission."
+
+- **Beliefs (beliefs.html)**:
+  - **Full Text Archive**: Complete documentation of all 37 Fundamental Beliefs.
   - **Heritage Tile**: "Succession of the Church."
   - **Location Tile**: Integrated Google Map.
 

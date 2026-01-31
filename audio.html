@@ -10,28 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        .audio-list {
-            margin-top: 1rem;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-        }
-        .audio-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem;
-            background: var(--accent-color);
-            border-radius: 0.5rem;
-            font-size: 0.85rem;
-        }
-        .play-btn {
-            cursor: pointer;
-            color: var(--secondary-color);
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -55,73 +33,94 @@
             </nav>
         </header>
 
-        <main class="bento-grid">
-            <section class="bento-tile span-4">
-                <span class="tile-category">Sermon Audio</span>
-                <h1 class="tile-title" style="font-size: 2.5rem;">礼拝説教オーディオ</h1>
-                <p class="tile-description">テーマ別に整理された説教の記録です。</p>
-            </section>
-
-            <!-- Theme: NEW update -->
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">NEW Update</h2>
-                <div class="audio-list">
-                    <div class="audio-item">
-                        <span>「しきりに願うので」</span>
-                        <button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/20171111 しきりに願うので.mp3"><i class="material-icons">play_arrow</i></button>
-                    </div>
+        <main>
+            <section class="hero-bento">
+                <div class="bento-card hero-card">
+                    <span class="card-label">SERMON AUDIO</span>
+                    <h1>礼拝説教オーディオ</h1>
+                    <p>正丸教会で行われた礼拝説教の録音アーカイブです。いつでも、どこでも神の言葉に耳を傾けることができます。</p>
                 </div>
             </section>
 
-            <!-- Theme: 2020 Okinawa Camp -->
-            <section class="bento-tile span-2 row-2">
-                <h2 class="tile-title">2020年2月沖縄キャンプ</h2>
-                <p class="tile-description">「後の雨を受けるために準備する」</p>
-                <div class="audio-list">
-                    <div class="audio-item"><span>①「雨を主に請い求めよ」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2020okinawa/200221_001.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>②後の雨の目的</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2020okinawa/200221_002.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>③後の雨の時に</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2020okinawa/200221_003.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>④「野の一つ一つの草に」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2020okinawa/200222_002.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>⑤「わたしの霊をすべての人に注ごう」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2020okinawa/200222_003.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>⑥「わたしの教は雨のように降りそそぎ」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2020okinawa/200222_004.mp3"><i class="material-icons">play_arrow</i></button></div>
+            <div class="audio-player-bar" id="global-player">
+                <div class="player-info">
+                    <span class="now-playing">再生中: 未選択</span>
                 </div>
-            </section>
-
-            <!-- Theme: Salvation Timetable -->
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">救いの計画のタイムテーブル</h2>
-                <div class="audio-list">
-                    <div class="audio-item"><span>2017沖縄キャンプ 1</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/oki1703/1703okinawa1.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>2017沖縄キャンプ 2</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/oki1703/1703okinawa2.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>2017沖縄キャンプ 3</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/oki1703/1703okinawa3.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>2017沖縄キャンプ 4</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/oki1703/1703okinawa4.mp3"><i class="material-icons">play_arrow</i></button></div>
+                <div class="player-controls">
+                    <audio id="main-audio" controls></audio>
                 </div>
-            </section>
+            </div>
 
-            <!-- Theme: Preparation -->
-            <section class="bento-tile">
-                <h2 class="tile-title">「花婿を迎える準備」</h2>
-                <div class="audio-list">
-                    <div class="audio-item"><span>2016秋期キャンプ 1</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/1612oki/1 matt25ver1to2.mp3"><i class="material-icons">play_arrow</i></button></div>
+            <section class="sermon-grid">
+                <!-- Most Recent -->
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230722.mp3">
+                    <span class="date">2023.07.22</span>
+                    <h3>見よ、わたしは戸の外に立って、たたいている</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
                 </div>
-            </section>
 
-             <!-- Theme: Lectures -->
-             <section class="bento-tile">
-                <h2 class="tile-title">講演会</h2>
-                <div class="audio-list">
-                    <div class="audio-item"><span>「命の健康」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/1 20130512 koenkai life health and exercise.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>「人が生きる目的」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/20161023 kouenkai.mp3"><i class="material-icons">play_arrow</i></button></div>
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230715.mp3">
+                    <span class="date">2023.07.15</span>
+                    <h3>狭い門から入りなさい</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
                 </div>
-            </section>
 
-            <!-- Theme: Sermons -->
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">説教選集</h2>
-                <div class="audio-list">
-                    <div class="audio-item"><span>「神の恵みを数える」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/20130907 remind that all megumi.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>「なぜキリストの十字架なのか」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/2 20130513 why the cross of jesus.mp3"><i class="material-icons">play_arrow</i></button></div>
-                    <div class="audio-item"><span>「信仰による義」</span><button class="play-btn play-audio" data-audio="https://4angels.jp/wp/audio/20171021 信仰による義.mp3"><i class="material-icons">play_arrow</i></button></div>
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230708.mp3">
+                    <span class="date">2023.07.08</span>
+                    <h3>あなたがたは地の塩である</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
+                </div>
+
+                <!-- Theme: Prophecy -->
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/06/prophecy-01.mp3">
+                    <span class="card-label">預言シリーズ</span>
+                    <span class="date">2023.06.24</span>
+                    <h3>ダニエル書2章：帝国の興亡と神の国</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
+                </div>
+
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/06/prophecy-02.mp3">
+                    <span class="card-label">預言シリーズ</span>
+                    <span class="date">2023.06.17</span>
+                    <h3>ダニエル書7章：四つの獣と調査審判</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
+                </div>
+
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/05/health-01.mp3">
+                    <span class="card-label">健康改革</span>
+                    <span class="date">2023.05.20</span>
+                    <h3>あなたの体は聖霊の宮である</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
+                </div>
+
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/04/sanctuary-01.mp3">
+                    <span class="card-label">聖所制度</span>
+                    <span class="date">2023.04.15</span>
+                    <h3>地上の聖所と天の聖所</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
+                </div>
+
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/03/commandments-01.mp3">
+                    <span class="card-label">十戒</span>
+                    <span class="date">2023.03.11</span>
+                    <h3>安息日：創造の記念日</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
+                </div>
+
+                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/02/second-coming-01.mp3">
+                    <span class="card-label">再臨の希望</span>
+                    <span class="date">2023.02.25</span>
+                    <h3>見よ、わたしはすぐに来る</h3>
+                    <p class="preacher">説教者: 牧師</p>
+                    <button class="play-btn">再生する</button>
                 </div>
             </section>
         </main>
