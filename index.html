@@ -36,26 +36,20 @@
 
         <main class="bento-grid">
             <!-- Hero Tile: Announcements -->
-            <section class="bento-tile span-3 row-2 has-image" id="hero-announcement">
+            <section class="bento-tile span-4 row-2 has-image">
                 <img src="https://4angels.jp/wp-content/uploads/2024/12/2025week-icatch-320x180.jpg" alt="2025年末祈祷週" class="tile-image">
-                <div class="tile-content">
-                    <span class="tile-category">告知 / Announcement</span>
-                    <h2 class="tile-title">2025年末祈祷週「全世界へ出て行って」</h2>
-                    <p class="tile-description">2025年12月5日-14日。皆様の参加を心よりお待ちしております。</p>
-                    <div class="tile-footer">
-                        <button class="btn-more toggle-btn" data-target="hero-announcement">詳しく見る →</button>
-                    </div>
-                </div>
-                <div class="disclosure-content">
-                    <h3>2025年末祈祷週「全世界へ出て行って」</h3>
-                    <p class="date">開催期間: 2025年12月5日(金) 〜 14日(日)</p>
-                    <p>「全世界へ行って、すべての造られたものに福音を宣べ伝えよ」(マルコ16:15)というキリストの大委任をテーマに、2025年の締めくくりとして祈祷週を開催いたします。</p>
-                    <p>皆様とともに祈りとみ言葉を分かち合えることを心より楽しみにしております。詳細は追って当サイトおよび公式LINEにてお知らせいたします。</p>
+                <div class="tile-content" style="background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); display: flex; flex-direction: column; justify-content: flex-end;">
+                    <span class="tile-category" style="color: var(--ice-blue);">告知 / Announcement</span>
+                    <h2 class="tile-title" style="color: white; font-size: 2.5rem;">2025年末祈祷週「全世界へ出て行って」</h2>
+                    <p class="tile-description" style="color: white; opacity: 0.9; max-width: 600px;">
+                        開催期間: 2025年12月5日(金) 〜 14日(日)<br>
+                        「全世界へ行って、すべての造られたものに福音を宣べ伝えよ」(マルコ16:15)というキリストの大委任をテーマに開催いたします。
+                    </p>
                 </div>
             </section>
 
             <!-- Quick Link: YouTube Live -->
-            <section class="bento-tile">
+            <section class="bento-tile tile-accent-tint">
                 <span class="tile-category">礼拝生放送 / Live</span>
                 <h3 class="tile-title">YouTube Live</h3>
                 <p class="tile-description">毎週土曜日 安息日学校：9:30-10:45</p>
@@ -65,7 +59,7 @@
             </section>
 
             <!-- Quick Link: Latest Sermon -->
-            <section class="bento-tile">
+            <section class="bento-tile tile-blue-tint">
                 <span class="tile-category">説教 / Sermon</span>
                 <h3 class="tile-title">最新の説教</h3>
                 <p class="tile-description">「しきりに願うので」</p>
@@ -74,23 +68,27 @@
                 </div>
             </section>
 
-            <!-- About Short -->
+            <!-- Bible Study -->
             <section class="bento-tile span-2">
-                <span class="tile-category">教会紹介 / About Us</span>
-                <h3 class="tile-title">正丸教会へようこそ</h3>
-                <p class="tile-description">秩父の清水流れる森の教会。神の家、真理の柱、真理の基礎としての歩み。</p>
+                <span class="tile-category">聖書を学ぶ / Bible Study</span>
+                <h3 class="tile-title">現代の真理</h3>
+                <p class="tile-description">時代に即した聖書の学び。身体と精神の調和を保つための「健康の法則」など。</p>
                 <div class="tile-footer">
-                    <a href="about.html" class="btn-more">もっと詳しく →</a>
+                    <a href="study.html" class="btn-more">詳しくはこちら →</a>
                 </div>
             </section>
 
-            <!-- Bible Study -->
-            <section class="bento-tile">
-                <span class="tile-category">聖書を学ぶ / Bible Study</span>
-                <h3 class="tile-title">現代の真理</h3>
-                <p class="tile-description">時代に即した聖書の学び。</p>
-                <div class="tile-footer">
-                    <a href="study.html" class="btn-icon" aria-label="聖書の学びページへ">📖</a>
+            <!-- About Short -->
+            <section class="bento-tile span-2 row-2 tile-dark">
+                <div style="height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <span class="tile-category" style="color: var(--ice-blue);">教会紹介 / About Us</span>
+                        <h3 class="tile-title" style="color: white;">正丸教会へようこそ</h3>
+                        <p class="tile-description" style="color: rgba(255,255,255,0.8);">秩父の清水流れる森の教会。神の家、真理の柱、真理の基礎としての歩み。私たちの信条と教会の歴史をご紹介します。</p>
+                    </div>
+                    <div class="tile-footer">
+                        <a href="about.html" class="btn-more" style="color: var(--ice-blue); border-color: var(--ice-blue);">もっと詳しく →</a>
+                    </div>
                 </div>
             </section>
 
@@ -104,7 +102,7 @@
             </section>
 
             <!-- Contact/Location -->
-            <section class="bento-tile span-4">
+            <section class="bento-tile span-3">
                 <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
                     <div>
                         <span class="tile-category">アクセス / Access</span>
