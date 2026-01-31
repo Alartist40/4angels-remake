@@ -2,10 +2,10 @@
 
 ## 1. Information Topology (Sitemap)
 
-The website is restructured into a multi-page Bento Grid architecture. Every page uses a grid system to categorize information, reducing cognitive load and making navigation "second nature."
+The website is structured into a multi-page Bento Grid architecture. Every page uses a grid system to categorize information, with an **Inline Disclosure** system that allows for deep exploration without losing spatial context.
 
 - **Home (index.html)**: The "Navigation Hub"
-  - **Hero Tile**: Latest News/Announcements (e.g., 2025 Year-end Prayer Week)
+  - **Hero Tile**: Latest News/Announcements with inline expansion.
   - **Live Tile**: YouTube Live link with current schedule.
   - **Sermon Tile**: Shortcut to the latest Audio Sermon.
   - **Bible Study Tile**: Quick access to "Present Truth" studies.
@@ -14,18 +14,13 @@ The website is restructured into a multi-page Bento Grid architecture. Every pag
 
 - **About Us (about.html)**: The "Spiritual Foundation"
   - **Intro Tile**: "Welcome to Shomaru Church"
-  - **Principles Tile**: Link to "This We Believe."
-  - **Mission Tiles**: Separate bento blocks for "House of God," "Body of Christ," and "Mission."
-  - **Heritage Tile**: "Succession of the Church."
-  - **Location Tile**: Integrated Google Map.
+  - **Beliefs Tile**: Inline expansion revealing all **37 Principles of Faith** with full descriptions.
+  - **Mission & Succession Tiles**: Detailed history and vision, expandable within the grid.
+  - **Location Tile**: Integrated Google Map with direct contact details.
 
 - **Sermon Audio (audio.html)**: The "Theme-based Archive"
-  - **Theme Bento Tiles**:
-    - [Theme A]: 2020 Okinawa Camp
-    - [Theme B]: Time Table of Salvation
-    - [Theme C]: Preparing for the Bridegroom
-    - [Theme D]: Lectures
-  - **Sub-divisions**: Clicking a tile reveals a refined grid of specific audio tracks with an inline player.
+  - **Theme Bento Tiles**: Grouped by event or series (e.g., Okinawa Camp, salvation prophecy).
+  - **Sub-divisions**: Expanding a tile reveals a refined list of specific audio tracks with an integrated player.
 
 - **Bible Study (study.html)**:
   - **Present Truth Tile** (Grouped Study 1, 2, 3)
@@ -33,8 +28,8 @@ The website is restructured into a multi-page Bento Grid architecture. Every pag
   - **Sabbath Tile**
 
 - **Publishing (publishing.html)**:
-  - **Eternal Truth Tile**
-  - **Sabbath Bible Lesson Tile**
+  - **Eternal Truth Archive**: Grid-based layout of years (2010–2026) with direct PDF links, integrated via inline expansion.
+  - **Sabbath Bible Lesson Archive**: Full quarterly guide archive (2011–2026).
 
 - **Contact (contact.html)**:
   - **Form Tile**: Minimalist inquiry form.
@@ -55,15 +50,10 @@ The website is restructured into a multi-page Bento Grid architecture. Every pag
 - **UI/Nav**: `-apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif`
 - **Content**: `"Shippori Mincho", serif` (For a spiritual, traditional yet clean Japanese feel)
 
-### Grid System
+### Grid System & Disclosure
 - **Macro**: 12-column CSS Grid.
-- **Bento Logic**: Tiles occupy varying spans (2x2, 4x2, 2x4) based on content priority.
-- **Responsiveness**: Stacks to a 1-column or 2-column grid on mobile.
-
-### Micro-interactions
-- **Hover**: Subtle scale (1.02) and soft box-shadow elevation.
-- **Audio**: Smooth play/pause transitions using CSS transforms.
-- **Transitions**: Native CSS fade-in for page loads.
+- **Inline Disclosure**: Tiles use the `.expanded` class to span the full grid width (`1 / -1`) when details are requested, utilizing smooth `cubic-bezier` height transitions.
+- **Responsiveness**: Stacks to a 1-column grid on mobile, ensuring readability on all devices.
 
 ---
 

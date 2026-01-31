@@ -36,15 +36,21 @@
 
         <main class="bento-grid">
             <!-- Hero Tile: Announcements -->
-            <section class="bento-tile span-3 row-2 has-image">
+            <section class="bento-tile span-3 row-2 has-image" id="hero-announcement">
                 <img src="https://4angels.jp/wp-content/uploads/2024/12/2025week-icatch-320x180.jpg" alt="2025年末祈祷週" class="tile-image">
                 <div class="tile-content">
                     <span class="tile-category">告知 / Announcement</span>
                     <h2 class="tile-title">2025年末祈祷週「全世界へ出て行って」</h2>
                     <p class="tile-description">2025年12月5日-14日。皆様の参加を心よりお待ちしております。</p>
                     <div class="tile-footer">
-                        <button class="btn-more expand-btn" data-target="announcement-2025">詳しく見る →</button>
+                        <button class="btn-more toggle-btn" data-target="hero-announcement">詳しく見る →</button>
                     </div>
+                </div>
+                <div class="disclosure-content">
+                    <h3>2025年末祈祷週「全世界へ出て行って」</h3>
+                    <p class="date">開催期間: 2025年12月5日(金) 〜 14日(日)</p>
+                    <p>「全世界へ行って、すべての造られたものに福音を宣べ伝えよ」(マルコ16:15)というキリストの大委任をテーマに、2025年の締めくくりとして祈祷週を開催いたします。</p>
+                    <p>皆様とともに祈りとみ言葉を分かち合えることを心より楽しみにしております。詳細は追って当サイトおよび公式LINEにてお知らせいたします。</p>
                 </div>
             </section>
 
@@ -113,26 +119,6 @@
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="content-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="詳細内容 / Detailed Content">
-        <div class="modal-container">
-            <button class="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-body">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Hidden Content for Modals -->
-    <div class="hidden-content">
-        <div id="announcement-2025">
-            <h2>2025年末祈祷週「全世界へ出て行って」</h2>
-            <p class="date">開催期間: 2025年12月5日(金) 〜 14日(日)</p>
-            <p>「全世界へ行って、すべての造られたものに福音を宣べ伝えよ」(マルコ16:15)というキリストの大委任をテーマに、2025年の締めくくりとして祈祷週を開催いたします。</p>
-            <p>皆様とともに祈りとみ言葉を分かち合えることを心より楽しみにしております。詳細は追って当サイトおよび公式LINEにてお知らせいたします。</p>
-        </div>
     </div>
 
     <script src="js/navigation.js"></script>

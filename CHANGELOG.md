@@ -19,11 +19,11 @@
 - **Content Sections**: Home (Hub), About (History/Mission), Audio (Dashboard), Study (Learning), Publishing (Books), and Contact (Access).
 - **Comprehensive Content Migration**:
   - Extracted and preserved **50+ original MP3 sermon links** categorized by theme.
-  - Migrated **37 Principles of Faith** (Fundamental Beliefs) into a clean, modal-driven UI.
+  - Migrated **37 Principles of Faith** (Fundamental Beliefs) with detailed descriptions and scriptural references.
   - Preserved historical documentation and mission statements.
   - Reconstructed "Present Truth", "Health", and "Sabbath" study materials.
 - **Interactions**: Intersection Observer based scroll-reveal animations for a fluid, premium feel.
-- **Accessibility**: ARIA labels for navigation and icons, semantic HTML5 structure, and accessible form labels.
+- **Accessibility**: ARIA labels for navigation and icons, semantic HTML5 structure, accessible form labels, and focus management for interactive elements.
 
 ### 1.2 Code Structure
 - **CSS Architecture**: Modular approach with `base.css` (variables), `layout.css` (bento grid), and `components.css` (UI patterns).
@@ -36,3 +36,10 @@
 
 ### 1.4 Deviations from Reference
 - **Rationale for Changes**: Omitted certain legacy sidebar widgets from the original site to focus on the "Second Nature" user flow where the primary intent (Sermons, Live, Contact) is always reachable within 2 clicks.
+
+### 1.5 Inline Disclosure Update (2025-05-22)
+- **Transition from Modals to Inline Disclosure**: Replaced the previous modal-based detailed views with an "Inline Bento Grid Expansion" architecture. Content now expands within the existing layout, maintaining visual context and providing a more integrated experience.
+- **Full Data Migration (Completion)**:
+  - Completed the detailed migration of all 37 Principles of Faith.
+  - Completed the full publication archive migration for "Eternal Truth" (ET) from 2010 to 2026 and "Sabbath Bible Lesson" (SBL) from 2011 to 2026.
+- **Refined Interaction Logic**: Consolidated toggle and expansion logic into `js/interactions.js`, utilizing CSS `max-height` transitions for smooth motion and `scrollIntoView` for improved user focus.
