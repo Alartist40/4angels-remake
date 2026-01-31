@@ -10,24 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
-        .theme-card { background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        .theme-title { font-size: 1.75rem; color: var(--primary-color); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
-        .theme-title i { font-style: normal; opacity: 0.5; }
-        .sermon-list { list-style: none; padding: 0; }
-        .sermon-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #f0f0f0; }
-        .sermon-item:last-child { border-bottom: none; }
-        .sermon-info { display: flex; flex-direction: column; }
-        .sermon-name { font-weight: 600; font-size: 1rem; color: var(--text-color); }
-        .sermon-date { font-size: 0.8rem; opacity: 0.6; }
-        .play-trigger { background: var(--secondary-color); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: transform 0.2s; }
-        .play-trigger:hover { transform: scale(1.1); background: var(--primary-color); }
-        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 1rem 2rem; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); display: none; align-items: center; justify-content: space-between; z-index: 1000; border-top: 2px solid var(--secondary-color); }
-        .now-playing-info { flex: 1; }
-        .now-playing-label { font-size: 0.7rem; text-transform: uppercase; color: var(--secondary-color); font-weight: bold; }
-        .now-playing-title { font-size: 1rem; font-weight: 700; }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -51,113 +33,204 @@
             </nav>
         </header>
 
-        <main>
-            <section class="hero-bento" style="margin-bottom: 3rem;">
-                <div class="bento-card hero-card" style="background: var(--primary-color); color: white;">
-                    <span class="card-label">AUDIO ARCHIVE</span>
-                    <h1>み言葉を聴く</h1>
-                    <p>テーマ別に整理された説教の録音。神の愛と真理のメッセージを、いつでも心に。</p>
+        <main class="bento-grid">
+            <!-- Header Tile -->
+            <section class="bento-tile span-4 row-2 has-image" style="background: #1a202c;">
+                <div class="tile-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('https://4angels.jp/wp-content/uploads/2023/07/20230713-cocoon-1.jpg') center/cover no-repeat; opacity: 0.3;"></div>
+                <div class="tile-content" style="position: relative; z-index: 2; padding: 4rem 2rem;">
+                    <span class="tile-category" style="color: #63b3ed; font-weight: 700;">AUDIO ARCHIVE</span>
+                    <h1 class="tile-title" style="font-size: clamp(2rem, 8vw, 4rem); color: white; margin: 1rem 0; line-height: 1.1;">み言葉を聴く</h1>
+                    <p class="tile-description" style="color: rgba(255,255,255,0.9); font-size: 1.2rem; max-width: 600px;">神の愛と真理のメッセージを、いつでも、どこでも。</p>
                 </div>
             </section>
 
-            <div class="theme-grid">
-                <!-- Theme 1: 山上の垂訓 -->
-                <div class="theme-card">
-                    <h2 class="theme-title"><i>01</i> 山上の垂訓</h2>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">イエス・キリストが山の上で語られた、神の国の憲章。</p>
-                    <ul class="sermon-list">
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">狭い門から入りなさい</span>
-                                <span class="sermon-date">2023.07.15</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230715.mp3" data-title="狭い門から入りなさい">▶</button>
-                        </li>
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">あなたがたは地の塩である</span>
-                                <span class="sermon-date">2023.07.08</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230708.mp3" data-title="あなたがたは地の塩である">▶</button>
-                        </li>
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">裁いてはならない</span>
-                                <span class="sermon-date">2023.06.03</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/06/20230603.mp3" data-title="裁いてはならない">▶</button>
-                        </li>
-                    </ul>
+            <!-- Theme: Worship Sermons -->
+            <section class="bento-tile span-3 row-2 theme-tile" style="background: linear-gradient(135deg, #2c5282 0%, #1a365d 100%); color: white;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: rgba(255,255,255,0.7);">WEEKLY</span>
+                    <h2 class="tile-title" style="color: white; font-size: 2rem;">礼拝説教</h2>
+                    <p class="tile-description" style="color: rgba(255,255,255,0.9);">毎週の安息日礼拝で分かち合われる、魂を揺さぶるメッセージ。</p>
                 </div>
-
-                <!-- Theme 2: 預言と再臨 -->
-                <div class="theme-card">
-                    <h2 class="theme-title"><i>02</i> 預言と再臨</h2>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">時のしるしを読み解き、主の再臨への備えを説くメッセージ。</p>
-                    <ul class="sermon-list">
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">預言の確かさ</span>
-                                <span class="sermon-date">2023.05.06</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/05/20230506.mp3" data-title="預言の確かさ">▶</button>
-                        </li>
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">キリストの再臨</span>
-                                <span class="sermon-date">2023.04.29</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/04/20230429.mp3" data-title="キリストの再臨">▶</button>
-                        </li>
-                    </ul>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-worship" style="color: white; border-color: rgba(255,255,255,0.4);">メッセージ一覧を開く ↓</button>
                 </div>
+            </section>
 
-                <!-- Theme 3: 健康と安息日 -->
-                <div class="theme-card">
-                    <h2 class="theme-title"><i>03</i> 健康と安息日</h2>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">創造の秩序に基づいた安息の祝福と、健康な歩み。</p>
-                    <ul class="sermon-list">
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">安息日：天地創造の記念日</span>
-                                <span class="sermon-date">2023.05.20</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/05/20230520.mp3" data-title="安息日：天地創造の記念日">▶</button>
-                        </li>
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">健康改革の祝福</span>
-                                <span class="sermon-date">2023.05.13</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/05/20230513.mp3" data-title="健康改革の祝福">▶</button>
-                        </li>
-                    </ul>
+            <!-- Theme: Health -->
+            <section class="bento-tile span-1 row-1 theme-tile" style="background: #f0fff4; border: 1px solid #c6f6d5;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #38a169;">HEALTH</span>
+                    <h3 class="tile-title" style="font-size: 1.2rem;">健康と命</h3>
                 </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-health">開く</button>
+                </div>
+            </section>
 
-                <!-- Theme 4: 特別な招き -->
-                <div class="theme-card">
-                    <h2 class="theme-title"><i>04</i> 特別な招き</h2>
-                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">一人ひとりの心の戸をたたく、キリストの愛の招き。</p>
-                    <ul class="sermon-list">
-                        <li class="sermon-item">
-                            <div class="sermon-info">
-                                <span class="sermon-name">見よ、わたしは戸の外に立って</span>
-                                <span class="sermon-date">2023.07.22</span>
-                            </div>
-                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230722.mp3" data-title="見よ、わたしは戸の外に立って">▶</button>
-                        </li>
-                    </ul>
+            <!-- Expanded: Worship -->
+            <div id="list-worship" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item">
+                        <span class="audio-name">「しきりに願うので」</span>
+                        <div class="item-footer" style="display: flex; justify-content: flex-end; margin-top: auto;">
+                            <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/20171111%20しきりに願うので.mp3" data-title="しきりに願うので">▶</button>
+                        </div>
+                    </div>
+                    <div class="audio-item">
+                        <span class="audio-name">「まず、求めなさい」</span>
+                        <div class="item-footer" style="display: flex; justify-content: flex-end; margin-top: auto;">
+                            <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/20170527_まず、求めなさい.mp3" data-title="まず、求めなさい">▶</button>
+                        </div>
+                    </div>
+                    <div class="audio-item">
+                        <span class="audio-name">「神のタイミングの知恵」</span>
+                        <div class="item-footer" style="display: flex; justify-content: flex-end; margin-top: auto;">
+                            <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/20170909%20神のタイミングの知恵.mp3" data-title="神のタイミングの知恵">▶</button>
+                        </div>
+                    </div>
+                    <div class="audio-item">
+                        <span class="audio-name">「みなのものが一つとなるため」</span>
+                        <div class="item-footer" style="display: flex; justify-content: flex-end; margin-top: auto;">
+                            <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/20170902%20みなのものが一つとなるためであります.mp3" data-title="みなのものが一つとなるため">▶</button>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- Theme: Gospel -->
+            <section class="bento-tile span-2 row-2 theme-tile" style="background: #2d3748; color: white;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #a0aec0;">THE CORE</span>
+                    <h2 class="tile-title" style="color: white;">永遠の福音</h2>
+                    <p class="tile-description" style="opacity: 0.9;">聖書研究の基礎と福音の真髄を学ぶシリーズ。</p>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-gospel" style="color: white; border-color: rgba(255,255,255,0.3);">開く</button>
+                </div>
+            </section>
+
+            <!-- Theme: Holy Spirit -->
+            <section class="bento-tile span-1 row-2 theme-tile" style="background: #ebf8ff; border: 1px solid #bee3f8;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #3182ce;">SPIRIT</span>
+                    <h3 class="tile-title">後の雨</h3>
+                    <p class="tile-description" style="font-size: 0.85rem;">聖霊の約束。</p>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-spirit">一覧</button>
+                </div>
+            </section>
+
+            <div id="list-gospel" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item"><span class="audio-name">永遠の福音 1</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/001_171123.mp3" data-title="永遠の福音 1">▶</button></div>
+                    <div class="audio-item"><span class="audio-name">永遠の福音 2</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/002_171123.mp3" data-title="永遠の福音 2">▶</button></div>
+                    <div class="audio-item"><span class="audio-name">永遠の福音 3</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/003_171123.mp3" data-title="永遠の福音 3">▶</button></div>
+                </div>
+            </div>
+
+            <!-- Theme: Camps -->
+            <section class="bento-tile span-1 row-1 theme-tile" style="background: #fffaf0; border: 1px solid #feebc8;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #dd6b20;">EVENTS</span>
+                    <h3 class="tile-title" style="font-size: 1.1rem;">キャンプ</h3>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-camps">開く</button>
+                </div>
+            </section>
+
+            <!-- More Lists -->
+            <div id="list-spirit" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item"><span class="audio-name">「雨を主に請い求めよ」</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/2020okinawa/200221_001.mp3" data-title="雨を主に請い求めよ">▶</button></div>
+                    <div class="audio-item"><span class="audio-name">後の雨の目的</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/2020okinawa/200221_002.mp3" data-title="後の雨の目的">▶</button></div>
+                </div>
+            </div>
+
+            <div id="list-health" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item"><span class="audio-name">講演会「命の健康」</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/1%2020130512%20koenkai%20life%20health%20and%20exercise.mp3" data-title="命の健康">▶</button></div>
+                </div>
+            </div>
+
+            <div id="list-camps" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item"><span class="audio-name">2017沖縄キャンプ 1</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/oki1703/1703okinawa1.mp3" data-title="沖縄キャンプ 1">▶</button></div>
+                    <div class="audio-item"><span class="audio-name">2017沖縄キャンプ 2</span><button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/oki1703/1703okinawa2.mp3" data-title="沖縄キャンプ 2">▶</button></div>
+                </div>
+            </div>
+
+            <!-- Theme: Bread of Life -->
+            <section class="bento-tile span-2 row-2 theme-tile" style="background: #fff5f5; border: 1px solid #fed7d7;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #e53e3e;">DAILY</span>
+                    <h3 class="tile-title" style="font-size: 1.8rem;">心のパン</h3>
+                    <p class="tile-description">日々の歩みを支える霊的糧。</p>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-bread">開く</button>
+                </div>
+            </section>
+
+            <!-- Theme: Bible Prophecy -->
+            <section class="bento-tile span-2 row-1 theme-tile" style="background: #f7fafc; border: 1px solid #e2e8f0;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #4a5568;">STUDY</span>
+                    <h3 class="tile-title">預言の光</h3>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-prophecy">開く</button>
+                </div>
+            </section>
+
+            <div id="list-bread" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item">
+                        <span class="audio-name">心のパン 2023.01.01</span>
+                        <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/bread/230101.mp3" data-title="心のパン 01.01">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="list-prophecy" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item">
+                        <span class="audio-name">ダニエル書研究 第1章</span>
+                        <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/daniel/01.mp3" data-title="ダニエル書 第1章">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Theme: Scripture & Meditation -->
+            <section class="bento-tile span-1 theme-tile" style="background: #fdf2f2;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #c53030;">MEDITATION</span>
+                    <h3 class="tile-title" style="font-size: 1.1rem;">聖句と黙想</h3>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-meditation">開く</button>
+                </div>
+            </section>
+
+            <div id="list-meditation" class="audio-list-container span-4" style="display: none;">
+                <div class="audio-grid">
+                    <div class="audio-item">
+                        <span class="audio-name">聖句と黙想 - 詩篇 23</span>
+                        <button class="play-trigger btn-play" data-src="https://4angels.jp/wp/audio/meditation/psalm23.mp3" data-title="詩篇 23">▶</button>
+                    </div>
+                </div>
+            </div>
+
         </main>
 
-        <!-- Global Player Bar -->
-        <div class="player-bar" id="global-player">
-            <div class="now-playing-info">
-                <div class="now-playing-label">Now Playing</div>
-                <div class="now-playing-title">未選択</div>
+        <!-- Global Player (Sticky bottom) -->
+        <div id="global-player" class="player-bar">
+            <div class="player-info">
+                <span class="now-playing-label">再生中:</span>
+                <span class="now-playing-title">タイトルを選択してください</span>
             </div>
-            <audio id="main-audio" controls style="flex: 2; max-width: 600px;"></audio>
+            <audio id="main-audio" controls></audio>
         </div>
 
         <footer class="main-footer">

@@ -33,54 +33,92 @@
             </nav>
         </header>
 
-        <main>
-            <section class="hero-bento">
-                <div class="bento-card hero-card">
-                    <span class="card-label">BIBLE STUDY</span>
-                    <h1>聖書を学ぶ</h1>
-                    <p>現代の真理、健康、安息日など、聖書が解き明かす重要なテーマについて深く学びましょう。</p>
+        <main class="bento-grid">
+            <!-- Hero Tile -->
+            <section class="bento-tile span-4 row-2" style="background: linear-gradient(135deg, #1a365d, #2c5282); color: white;">
+                <div class="tile-content" style="padding: 3rem;">
+                    <span class="tile-category" style="color: rgba(255,255,255,0.7);">LEARNING</span>
+                    <h1 class="tile-title" style="color: white; font-size: 3rem; margin-top: 1rem;">聖書を学ぶ</h1>
+                    <p class="tile-description" style="max-width: 600px; color: rgba(255,255,255,0.9);">
+                        現代の真理、健康、安息日など、聖書が解き明かす重要なテーマについて深く学びましょう。
+                    </p>
                 </div>
             </section>
 
-            <section class="study-grid">
-                <!-- Present Truth -->
-                <div class="bento-card">
-                    <span class="card-label">現代の真理</span>
-                    <h2>研究 1: 神の律法と福音</h2>
-                    <p>律法と福音の調和、そしてキリストがどのように律法を全うされたのかを学びます。</p>
-                    <button class="read-more" data-modal="modal-pt1">全文を読む</button>
+            <!-- Theme: Present Truth -->
+            <section class="bento-tile span-3 row-2 theme-tile" style="background: #fff; border: 1px solid #edf2f7;">
+                <div class="tile-content">
+                    <span class="tile-category">CORE STUDY</span>
+                    <h2 class="tile-title">現代の真理</h2>
+                    <p class="tile-description">律法と福音、安息日、三重のメッセージなど。今の時代に最も必要な真理。</p>
                 </div>
-
-                <div class="bento-card">
-                    <span class="card-label">現代の真理</span>
-                    <h2>研究 2: 安息日の起源と重要性</h2>
-                    <p>創造の時から続く安息日の神聖さと、それが現代において持つ意味を探ります。</p>
-                    <button class="read-more" data-modal="modal-pt2">全文を読む</button>
-                </div>
-
-                <div class="bento-card">
-                    <span class="card-label">現代の真理</span>
-                    <h2>研究 3: 三重の天使のメッセージ</h2>
-                    <p>黙示録14章に記された、再臨直前の世界に送られた最後の警告のメッセージです。</p>
-                    <button class="read-more" data-modal="modal-pt3">全文を読む</button>
-                </div>
-
-                <!-- Health -->
-                <div class="bento-card">
-                    <span class="card-label">健康</span>
-                    <h2>健康改革の原則</h2>
-                    <p>心身の健康と霊的な生活の密接な関係、そして聖書的なライフスタイルについて。</p>
-                    <button class="read-more" data-modal="modal-health">全文を読む</button>
-                </div>
-
-                <!-- Sabbath -->
-                <div class="bento-card">
-                    <span class="card-label">安息日</span>
-                    <h2>主の日：第七日安息日</h2>
-                    <p>なぜ土曜日が安息日なのか？聖書と歴史の証言からその根拠を明らかにします。</p>
-                    <button class="read-more" data-modal="modal-sabbath">全文を読む</button>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-pt">研究項目を見る ↓</button>
                 </div>
             </section>
+
+            <!-- Theme: Health -->
+            <section class="bento-tile span-1 row-1 theme-tile" style="background: #f0fff4; border: 1px solid #c6f6d5;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #38a169;">HEALTH</span>
+                    <h3 class="tile-title">健康改革</h3>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-health-study">開く</button>
+                </div>
+            </section>
+
+            <!-- Theme: Sabbath -->
+            <section class="bento-tile span-1 row-1 theme-tile" style="background: #ebf8ff; border: 1px solid #bee3f8;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: #3182ce;">SABBATH</span>
+                    <h3 class="tile-title">主の日</h3>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="list-sabbath-study">開く</button>
+                </div>
+            </section>
+
+            <!-- Expanded Areas -->
+            <div id="list-pt" class="collection-container span-4" style="display: none;">
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <h4 class="sub-title">研究 1: 神の律法と福音</h4>
+                        <p class="sub-desc" style="font-size: 0.85rem; opacity: 0.8;">律法と福音の調和、そしてキリストがどのように律法を全うされたのか。</p>
+                        <button class="read-more" data-modal="modal-pt1">全文を読む</button>
+                    </div>
+                    <div class="sub-item">
+                        <h4 class="sub-title">研究 2: 安息日の起源</h4>
+                        <p class="sub-desc" style="font-size: 0.85rem; opacity: 0.8;">創造の時から続く安息日の神聖さとその意味。</p>
+                        <button class="read-more" data-modal="modal-pt2">全文を読む</button>
+                    </div>
+                    <div class="sub-item">
+                        <h4 class="sub-title">研究 3: 三重のメッセージ</h4>
+                        <p class="sub-desc" style="font-size: 0.85rem; opacity: 0.8;">黙示録14章に記された、最後の警告のメッセージ。</p>
+                        <button class="read-more" data-modal="modal-pt3">全文を読む</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="list-health-study" class="collection-container span-4" style="display: none;">
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <h4 class="sub-title">健康改革の原則</h4>
+                        <p class="sub-desc" style="font-size: 0.85rem; opacity: 0.8;">心身の健康と霊的な生活の密接な関係について。</p>
+                        <button class="read-more" data-modal="modal-health">全文を読む</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="list-sabbath-study" class="collection-container span-4" style="display: none;">
+                <div class="sub-grid">
+                    <div class="sub-item">
+                        <h4 class="sub-title">主の日：第七日安息日</h4>
+                        <p class="sub-desc" style="font-size: 0.85rem; opacity: 0.8;">なぜ土曜日が安息日なのか？聖書と歴史の証言。</p>
+                        <button class="read-more" data-modal="modal-sabbath">全文を読む</button>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <!-- Modals -->

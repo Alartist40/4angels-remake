@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const audioSrc = playBtn.getAttribute('data-src');
         const title = playBtn.getAttribute('data-title');
 
-        if (mainAudio.src !== audioSrc) {
+        if (!mainAudio.src || mainAudio.src !== new URL(audioSrc, window.location.href).href) {
             mainAudio.src = audioSrc;
             if (nowPlayingTitle) nowPlayingTitle.textContent = title;
             if (playerBar) playerBar.style.display = 'flex';
@@ -89,10 +89,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event Delegation for Content Expanders
     document.addEventListener('click', (e) => {
-        const btn = e.target.closest('.expand-btn, .read-more');
+        const btn = e.target.closest('.expand-btn, .read-more, .btn-expand');
         if (!btn) return;
 
         const targetId = btn.getAttribute('data-target') || btn.getAttribute('data-modal');
+        if (!targetId) return;
+
+        // If it's an inline expansion (audio lists)
+        const targetElement = document.getElementById(targetId);
+        if (targetElement && targetElement.classList.contains('audio-list-container')) {
+            const isVisible = targetElement.style.display === 'block';
+
+            // Close all other lists first for cleanliness
+            document.querySelectorAll('.audio-list-container').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.btn-expand').forEach(b => b.textContent = b.hasAttribute('data-original-text') ? b.getAttribute('data-original-text') : '一覧を見る ↓');
+
+            if (!isVisible) {
+                targetElement.style.display = 'block';
+                if (!btn.hasAttribute('data-original-text')) btn.setAttribute('data-original-text', btn.textContent);
+                btn.textContent = '閉じる ↑';
+                targetElement.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+            return;
+        }
+
+        // Otherwise use Modal
         if (targetId) {
             const content = document.getElementById(targetId);
             if (content) {

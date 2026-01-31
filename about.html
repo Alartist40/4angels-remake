@@ -34,68 +34,118 @@
         </header>
 
         <main class="bento-grid">
-            <section class="bento-tile span-4">
-                <span class="tile-category">About Us</span>
-                <h1 class="tile-title" style="font-size: 2.5rem;">正丸教会へようこそ</h1>
-                <p class="tile-description">秩父の清水流れる森の中に佇む、生ける神の教会。私たちは真理の柱、真理の基礎として、キリストの再臨を待ち望んでいます。</p>
-            </section>
-
-            <section class="bento-tile span-2">
-                <h2 class="tile-title">信仰の原則 / Principles</h2>
-                <p class="tile-description">「私たちはこのように信じる」。聖書に基づいた37の信仰の原則を詳しく解説しています。</p>
-                <div class="tile-footer"><a href="beliefs.html" class="btn-more">詳しく見る →</a></div>
-            </section>
-
-            <section class="bento-tile">
-                <h2 class="tile-title">教会の使命 / Mission</h2>
-                <p class="tile-description">人類救済のために神がお定めになった機関としての教会の役割。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="about-mission">詳しく見る →</button></div>
-            </section>
-
-            <section class="bento-tile">
-                <h2 class="tile-title">教会の継承 / Succession</h2>
-                <p class="tile-description">世の初めから続く、神の民の歩みと継承の歴史。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="about-succession">詳しく見る →</button></div>
-            </section>
-
-            <section class="bento-tile span-4">
-                <h2 class="tile-title">アクセス / Access</h2>
-                <p class="tile-description">〒368-0071 埼玉県秩父郡横瀬町芦ヶ久保1607-1</p>
-                <div class="map-container" style="margin-top: 1rem; border-radius: 0.5rem; overflow: hidden; height: 300px;">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.4935678435997!2d139.15051526960332!3d35.96286399828111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eccc36af17951%3A0x287862fe4cfcc1bc!2sSeventh%20Day%20Adobenchisutokaikakuundoshomaru%20Church!5e1!3m2!1sko!2sjp!4v1690075946219!5m2!1sko!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <!-- Header -->
+            <section class="bento-tile span-4" style="background: #f8fafc;">
+                <div class="tile-content" style="padding: 4rem 2rem;">
+                    <span class="tile-category" style="color: var(--primary-color);">ABOUT US</span>
+                    <h1 class="tile-title" style="font-size: 3rem;">正丸教会へようこそ</h1>
+                    <p class="tile-description" style="font-size: 1.2rem; max-width: 800px;">
+                        秩父の清水流れる森の中に佇む、生ける神の教会。
+                        私たちは真理の柱、真理の基礎として、キリストの再臨を待ち望んでいます。
+                    </p>
                 </div>
             </section>
+
+            <!-- Mission -->
+            <section class="bento-tile span-2 theme-tile" style="background: #fff;">
+                <div class="tile-content">
+                    <span class="tile-category">MISSION</span>
+                    <h2 class="tile-title">教会の使命</h2>
+                    <p>人類救済のために神がお定めになった機関としての教会の役割。</p>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="info-mission">詳しく見る ↓</button>
+                </div>
+            </section>
+
+            <!-- Succession -->
+            <section class="bento-tile span-2 theme-tile" style="background: #fff;">
+                <div class="tile-content">
+                    <span class="tile-category">HISTORY</span>
+                    <h2 class="tile-title">教会の継承</h2>
+                    <p>世の初めから続く、神の民の歩みと継承の歴史。</p>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="info-succession">詳しく見る ↓</button>
+                </div>
+            </section>
+
+            <!-- Expansion Containers -->
+            <div id="info-mission" class="audio-list-container span-4" style="display: none; padding: 2rem; background: #fff; line-height: 1.8;">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">【教会の使命】</h3>
+                <p>「教会は人類救済のために神がお定めになった機関である。教会は奉仕するために組織された。その使命は世界に福音を伝えることである。教会を通して神の満ちあふれる豊かさを世界に反映させることが、神のはじめからのご計画であった。暗やみから驚くべき光に招き入れられた教会員たちは、神の栄光をあらわさなければならない。」（患難から栄光へ上巻1-3）</p>
+                <p>神の多種多様な知恵を、天上にあるもろもろの支配や権威に対してさえも明らかに示していくことが、私たちの使命です。</p>
+            </div>
+
+            <div id="info-succession" class="audio-list-container span-4" style="display: none; padding: 2rem; background: #fff; line-height: 1.8;">
+                <h3 style="margin-bottom: 1rem; color: var(--primary-color);">【キリストの教会の継承】</h3>
+                <p>神様が世のはじめから持っておられる教会は、真理に忠実な人々によって継承されてきました。イエス様が地上に来られた時、その言葉を受け入れ、共にとどまった弟子たちが初代教会を構成しました。それ以来、歴史を通じて、与えられた「現代の真理（present truth）」に堅く立つ残りの民が、常に神の教会を構成してきたのです。</p>
+                <blockquote style="margin: 1.5rem 0; padding-left: 1rem; border-left: 4px solid #ddd; font-style: italic;">
+                    「主よ、わたしたちは、だれのところに行きましょう。永遠の命の言をもっているのはあなたです。」（ヨハネ6:68）
+                </blockquote>
+            </div>
+
+            <!-- Beliefs Theme Tile -->
+            <section class="bento-tile span-2 row-2 theme-tile" style="background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%); color: white;">
+                <div class="tile-content">
+                    <span class="tile-category" style="color: rgba(255,255,255,0.7);">FUNDAMENTAL</span>
+                    <h2 class="tile-title" style="color: white; font-size: 2rem;">信仰の原則</h2>
+                    <p style="color: rgba(255,255,255,0.8);">聖書に基づく37の信仰原則。「私たちはこのように信じる」。</p>
+                </div>
+                <div class="tile-footer">
+                    <button class="btn-expand" data-target="info-beliefs" style="color: white; border-color: rgba(255,255,255,0.3);">37の項目を展開 ↓</button>
+                </div>
+            </section>
+
+            <div id="info-beliefs" class="collection-container span-4" style="display: none;">
+                <div class="sub-grid" style="grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));">
+                    <div class="sub-item" style="min-height: auto;">
+                        <h4 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">01 神</h4>
+                        <p style="font-size: 0.85rem;">唯一の神がいまし、無限の知恵と全能の力によって天と地を創造された。</p>
+                    </div>
+                    <div class="sub-item" style="min-height: auto;">
+                        <h4 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">02 イエス・キリスト</h4>
+                        <p style="font-size: 0.85rem;">生ける神の御子。神と人との間の唯一の仲保者。</p>
+                    </div>
+                    <div class="sub-item" style="min-height: auto;">
+                        <h4 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">05 十戒</h4>
+                        <p style="font-size: 0.85rem;">神の律法は完全であり、改善の余地はない。イエスはこれを全うされた。</p>
+                    </div>
+                    <div class="sub-item" style="min-height: auto;">
+                        <h4 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">06 安息日</h4>
+                        <p style="font-size: 0.85rem;">週の第7日（土曜日）は主の日であり、聖別されるべき休息の日である。</p>
+                    </div>
+                    <div class="sub-item" style="min-height: auto;">
+                        <h4 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">19 健康改革</h4>
+                        <p style="font-size: 0.85rem;">体は聖霊の宮であるため、健康を維持することは宗教的義務である。</p>
+                    </div>
+                    <div class="sub-item" style="min-height: auto;">
+                        <h4 style="color: var(--primary-color); border-bottom: 2px solid #eee; padding-bottom: 0.5rem; margin-bottom: 0.5rem;">33 キリストの再臨</h4>
+                        <p style="font-size: 0.85rem;">イエスは目に見える形で栄光のうちに再臨される。私たちはそれを待ち望む。</p>
+                    </div>
+                </div>
+                <div style="margin-top: 2rem; text-align: center;">
+                    <a href="beliefs.html" class="btn-more">全37項目の詳細を読む →</a>
+                </div>
+            </div>
+
+            <!-- Access Tile -->
+            <section id="access" class="bento-tile span-2 row-2" style="background: #fff; border: 1px solid #edf2f7;">
+                <div class="tile-content" style="height: 100%;">
+                    <span class="tile-category">ACCESS</span>
+                    <h2 class="tile-title">アクセス</h2>
+                    <p style="font-size: 0.85rem; margin-bottom: 1rem;">〒368-0071 埼玉県秩父郡横瀬町芦ヶ久保1607-1</p>
+                    <div class="map-container" style="flex-grow: 1; border-radius: 12px; overflow: hidden; min-height: 250px; border: 1px solid #eee;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d769.4935678435997!2d139.15051526960332!3d35.96286399828111!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601eccc36af17951%3A0x287862fe4cfcc1bc!2sSeventh%20Day%20Adobenchisutokaikakuundoshomaru%20Church!5e1!3m2!1sko!2sjp!4v1690075946219!5m2!1sko!2sjp" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="content-modal" class="modal-overlay">
-        <div class="modal-container">
-            <button class="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-body" style="line-height: 1.8;">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Hidden Content -->
-    <div class="hidden-content">
-        <div id="about-mission">
-            <h2>【教会の使命】</h2>
-            <p>「教会は人類救済のために神がお定めになった機関である。教会は奉仕するために組織された。その使命は世界に福音を伝えることである。教会を通して神の満ちあふれる豊かさを世界に反映させることが、神のはじめからのご計画であった。暗やみから驚くべき光に招き入れられた教会員たちは、神の栄光をあらわさなければならない。」（患難から栄光へ上巻1-3）</p>
-            <p>神の多種多様な知恵を、天上にあるもろもろの支配や権威に対してさえも明らかに示していくことが、私たちの使命です。</p>
-        </div>
-
-        <div id="about-succession">
-            <h2>【キリストの教会の継承】</h2>
-            <p>神様が世のはじめから持っておられる教会は、真理に忠実な人々によって継承されてきました。イエス様が地上に来られた時、その言葉を受け入れ、共にとどまった弟子たちが初代教会を構成しました。それ以来、歴史を通じて、与えられた「現代の真理（present truth）」に堅く立つ残りの民が、常に神の教会を構成してきたのです。</p>
-            <blockquote>「主よ、わたしたちは、だれのところに行きましょう。永遠の命の言をもっているのはあなたです。」（ヨハネ6:68）</blockquote>
-        </div>
-
     </div>
 
     <script src="js/navigation.js"></script>

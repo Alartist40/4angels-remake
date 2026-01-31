@@ -11,10 +11,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; background: #000; margin: 2rem 0; }
-        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
-        .schedule-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 1rem; margin-top: 1.5rem; }
-        .schedule-time { font-weight: bold; color: var(--secondary-color); }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #000;
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+        .schedule-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .schedule-item:last-child { border-bottom: none; }
+        .time-badge {
+            background: var(--primary-color);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -39,38 +71,72 @@
             </nav>
         </header>
 
-        <main>
-            <section class="hero-bento">
-                <div class="bento-card hero-card">
-                    <span class="card-label">YOUTUBE LIVE</span>
-                    <h1>礼拝生放送</h1>
-                    <p>毎週安息日（土曜日）の礼拝を、YouTubeチャンネルより生放送でお届けしています。遠方の方や、直接お越しいただけない方も共に礼拝を捧げることができます。</p>
+        <main class="bento-grid">
+            <!-- Hero Title Tile -->
+            <section class="bento-tile span-4 row-2" style="background: #f8fafc; border-bottom: 3px solid var(--secondary-color);">
+                <div class="tile-content" style="padding: 4rem 2rem;">
+                    <span class="tile-category" style="color: var(--primary-color); font-weight: 700;">LIVE STREAM</span>
+                    <h1 class="tile-title" style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1; margin: 1rem 0;">礼拝生放送</h1>
+                    <p class="tile-description" style="font-size: 1.1rem; max-width: 700px; opacity: 0.8;">
+                        毎週安息日（土曜日）の礼拝を、YouTubeチャンネルより生放送でお届けしています。
+                    </p>
                 </div>
             </section>
 
-            <div class="video-container">
-                <!-- Replace with dynamic channel live embed if possible, or just the channel link -->
-                <iframe src="https://www.youtube.com/embed/live_stream?channel=UC852S2H5M0U_k96r828551A" allowfullscreen></iframe>
-            </div>
+            <!-- Video Player Tile -->
+            <section class="bento-tile span-3 row-3" style="background: #000; padding: 1.5rem; border-radius: 20px;">
+                <div class="video-wrapper" style="border-radius: 12px;">
+                    <!-- Dynamic YouTube Live Embed -->
+                    <iframe src="https://www.youtube.com/embed/live_stream?channel=UC852S2H5M0U_k96r828551A" allowfullscreen></iframe>
+                </div>
+            </section>
 
-            <section class="schedule-bento" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem;">
-                <div class="bento-card">
-                    <h2>放送スケジュール</h2>
-                    <p>毎週土曜日（安息日）</p>
-                    <div class="schedule-grid">
-                        <div class="schedule-time">09:30 - 10:45</div>
-                        <div class="schedule-label">安息日学校（聖書研究）</div>
-                        <div class="schedule-time">11:00 - 12:00</div>
-                        <div class="schedule-label">礼拝説教</div>
+            <!-- Schedule Tile -->
+            <section class="bento-tile span-1 row-3" style="background: #fff; border: 1px solid #edf2f7;">
+                <div class="tile-content">
+                    <span class="tile-category">SCHEDULE</span>
+                    <h2 class="tile-title" style="font-size: 1.8rem; margin-bottom: 0.5rem;">放送時間</h2>
+                    <p style="font-size: 0.9rem; color: #666; margin-bottom: 1.5rem;">毎週土曜日（安息日）</p>
+
+                    <ul class="schedule-list">
+                        <li class="schedule-item">
+                            <span style="font-weight: 500;">聖書研究</span>
+                            <span class="time-badge">09:30</span>
+                        </li>
+                        <li class="schedule-item">
+                            <span style="font-weight: 500;">礼拝説教</span>
+                            <span class="time-badge">11:00</span>
+                        </li>
+                    </ul>
+
+                    <div style="margin-top: auto; padding: 1rem; background: #fff5f5; border-radius: 12px; font-size: 0.8rem; line-height: 1.5;">
+                        <strong>注意:</strong> 通信環境等により、開始時間が前後する場合があります。
                     </div>
                 </div>
+            </section>
 
-                <div class="bento-card">
-                    <h2>公式YouTubeチャンネル</h2>
-                    <p>過去の礼拝動画もこちらからご覧いただけます。</p>
-                    <a href="https://youtube.com/@sdarmjapan" target="_blank" class="read-more" style="display: inline-block; margin-top: 1rem;">チャンネルを見る →</a>
+            <!-- YouTube Channel Link Tile -->
+            <section class="bento-tile span-2" style="background: linear-gradient(135deg, #ff0000 0%, #cc0000 100%); color: white;">
+                <div class="tile-content">
+                    <h2 class="tile-title" style="color: white;">公式YouTubeチャンネル</h2>
+                    <p style="color: rgba(255,255,255,0.9);">過去の礼拝動画のアーカイブや、特別な特別プログラムもこちらからご覧いただけます。</p>
+                    <a href="https://youtube.com/@sdarmjapan" target="_blank" class="btn-expand" style="display: inline-block; margin-top: 1.5rem; color: white; border-color: rgba(255,255,255,0.5);">チャンネルを登録する</a>
                 </div>
             </section>
+
+            <!-- Offline Guide Tile -->
+            <section class="bento-tile span-2" style="background: #f0f4f8;">
+                <div class="tile-content">
+                    <span class="tile-category">OFFLINE</span>
+                    <h2 class="tile-title">放送がない時は</h2>
+                    <p>放送時間外は、過去の説教オーディオをお楽しみいただけます。また、お近くの方はぜひ教会へ足をお運びください。</p>
+                    <div style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <a href="audio.html" class="read-more">オーディオを聴く →</a>
+                        <a href="about.html#access" class="read-more">アクセスを見る →</a>
+                    </div>
+                </div>
+            </section>
+
         </main>
 
         <footer class="main-footer">
