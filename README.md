@@ -3,7 +3,7 @@
 ## Overview
 A hyper-minimalist, UX-first redesign of the Shomaru Church (4angels.jp) website. This project reconstructs the church's digital presence as a "spatial environment" using a Bento Grid architecture, ensuring that spiritual resources, live broadcasts, and community information are intuitively accessible.
 
-This redesign captures and preserves the entirety of the original site's content, including over 50 audio sermons, 37 fundamental beliefs, and extensive bible study materials, reimagining them through a modern, responsive interface.
+This version features a unique **Inline Disclosure System**, where content expands directly within the Bento grid rather than opening in separate modals or pages. This keeps the user grounded in the visual context of the site while allowing for high-density information retrieval.
 
 ## Language
 ja-JP (Japanese) with Bilingual Navigation (English)
@@ -13,16 +13,18 @@ ja-JP (Japanese) with Bilingual Navigation (English)
 - **Home**: The central hub featuring the latest announcements, YouTube Live links, and quick access to sermons.
 - **Sermons (説教)**: A dedicated dashboard grouping audio recordings by theme (e.g., Prophecy, Salvation, Health).
 - **Bible Study (聖書を学ぶ)**: Educational resources and studies on "Present Truth".
-- **About (教会紹介)**: Information about the church's history, mission, and the building itself.
+- **About (教会紹介)**: Information about the church's history, mission, and the complete **37 Principles of Faith**.
+- **Publishing (出版物)**: A comprehensive archive of "Eternal Truth" (2010–2026) and "Sabbath Bible Lesson" (2011–2026) with direct PDF access.
 
 ### User Flow Recommendations
 1. **First-time visitors**: Start at the **About** page to understand the mission and heritage.
 2. **Returning users**: Use the **Home** hero tile for the latest announcements or jump directly to **Sermons** for the newest audio.
-3. **Mobile experience**: Navigation is accessible via the menu icon at the top right, with grid elements stacking vertically for readability.
+3. **Mobile experience**: Navigation is accessible via the menu icon at the top right. Grid elements expand inline and scroll into view automatically for a seamless mobile experience.
 
 ## Technical Notes
 - **Browser Support**: Optimized for modern evergreen browsers (Chrome, Firefox, Safari, Edge).
 - **No-Dependency Stack**: Built with pure HTML5, CSS3, and ES6+ JavaScript. No build process or frameworks required.
+- **Interaction Model**: Uses native ES6 Intersection Observer for reveal effects and Event Delegation for efficient expansion/audio logic.
 - **Opening Locally**: Simply open `index.html` in any browser, or serve via a local server:
   ```bash
   python -m http.server 8000

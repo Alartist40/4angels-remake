@@ -132,6 +132,47 @@
     font-size: 0.85rem;
 }
 
+/* Button & Link Styles */
+.btn-more {
+    background: none;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-more:hover {
+    background-color: var(--secondary-color);
+    color: white;
+}
+
+/* Specific Bento Variations */
+.tile-blue-tint {
+    background-color: #f0f7ff;
+}
+
+.tile-accent-tint {
+    background-color: #f8faff;
+    border-left: 4px solid var(--accent-color);
+}
+
+.tile-dark {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.tile-dark .tile-title,
+.tile-dark .tile-description,
+.tile-dark .tile-category,
+.tile-dark .year-header {
+    color: white !important;
+}
+
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;

@@ -34,76 +34,68 @@
         </header>
 
         <main class="bento-grid">
+            <!-- Header Tile -->
             <section class="bento-tile span-4">
                 <span class="tile-category">Bible Study</span>
                 <h1 class="tile-title" style="font-size: 2.5rem;">聖書を学ぶ</h1>
                 <p class="tile-description">現代の真理、健康、安息日についての学び。</p>
             </section>
 
-            <section class="bento-tile span-2">
+            <!-- Present Truth -->
+            <section class="bento-tile span-2 row-2 tile-blue-tint">
                 <h2 class="tile-title">現代の真理 / Present Truth</h2>
-                <p class="tile-description">「神の憐れみの最後の招き」「第三天使の大いなる叫び」など、時代に必要なメッセージを学びます。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="study-present-truth">学ぶ →</button></div>
+                <p class="tile-description">時代に必要なメッセージを学びます。</p>
+                <ul style="margin-top: 1rem; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
+                    <li style="padding: 1rem; background: rgba(255,255,255,0.5); border-radius: var(--radius);">
+                        <strong>１. 「神の憐れみの最後の招き」</strong><br>
+                        <small>黙示録14章のメッセージの重要性。</small>
+                    </li>
+                    <li style="padding: 1rem; background: rgba(255,255,255,0.5); border-radius: var(--radius);">
+                        <strong>２. 「第三天使の大いなる叫び」</strong><br>
+                        <small>終わりの時代の警告。</small>
+                    </li>
+                    <li style="padding: 1rem; background: rgba(255,255,255,0.5); border-radius: var(--radius);">
+                        <strong>３. 「最も尊いメッセージ」</strong><br>
+                        <small>キリストの義による義認。</small>
+                    </li>
+                </ul>
             </section>
 
-            <section class="bento-tile">
-                <h2 class="tile-title">健康 / Health</h2>
-                <p class="tile-description">身体と精神の調和を保つための「健康の法則」について。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="study-health">学ぶ →</button></div>
+            <!-- Health Intro -->
+            <section class="bento-tile span-2 tile-accent-tint">
+                <h2 class="tile-title">健康 / Health ― 神様の賜物</h2>
+                <p class="tile-description">「愛する者よ。あなたのたましいがいつも恵まれていると同じく、あなたがすべてのことに恵まれ、またすこやかであるようにと、わたしは祈っている。」(ヨハネ第三2)</p>
             </section>
 
-            <section class="bento-tile">
-                <h2 class="tile-title">安息日 / Sabbath</h2>
-                <p class="tile-description">創造の記念日としての聖別された安息日の意味。</p>
-                <div class="tile-footer"><button class="btn-more expand-btn" data-target="study-sabbath">学ぶ →</button></div>
+            <!-- Health Laws -->
+            <section class="bento-tile span-2 tile-dark">
+                <h3 class="tile-title" style="color: var(--ice-blue);">健康の法則 (真の治療法)</h3>
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1rem; color: white;">
+                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">空気と水</div>
+                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">日光と規則正しい生活</div>
+                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">節制と正しい食事</div>
+                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">運動と休息</div>
+                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; grid-column: span 2;">神の力に頼ること</div>
+                </div>
+            </section>
+
+            <!-- Sabbath -->
+            <section class="bento-tile span-4">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                    <div>
+                        <h2 class="tile-title">安息日 / Sabbath ― 創造の記念日</h2>
+                        <p class="tile-description">「安息日を覚えて、これを聖とせよ。六日のあいだ働いてあなたのすべてのわざをせよ。七日目はあなたの神、主の安息である」(出エジプト20:8-10)</p>
+                    </div>
+                    <div>
+                        <p style="font-size: 0.9rem; line-height: 1.6;">安息日は単なる休日ではなく、天地の創造主を礼拝し、神との交わりを深めるために特別に聖別された日です。週の第七日目(土曜日)を安息日として守ることは、神様を愛し、その戒めに従うことのしるしです。</p>
+                    </div>
+                </div>
             </section>
         </main>
 
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>
         </footer>
-    </div>
-
-    <!-- Modal Structure -->
-    <div id="content-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-label="詳細内容 / Detailed Content">
-        <div class="modal-container">
-            <button class="modal-close" aria-label="Close Modal">&times;</button>
-            <div class="modal-body">
-                <!-- Content injected via JS -->
-            </div>
-        </div>
-    </div>
-
-    <!-- Hidden Content -->
-    <div class="hidden-content">
-        <div id="study-present-truth">
-            <h2>現代の真理 / Present Truth</h2>
-            <ul>
-                <li><strong>１. 「神の憐れみの最後の招き」</strong>: 黙示録14章のメッセージの重要性。</li>
-                <li><strong>２. 「第三天使の大いなる叫び」</strong>: 終わりの時代の警告。</li>
-                <li><strong>３. 「最も尊いメッセージ」</strong>: キリストの義による義認。</li>
-            </ul>
-        </div>
-
-        <div id="study-health">
-            <h2>健康 / Health ― 神様の賜物</h2>
-            <p>「愛する者よ。あなたのたましいがいつも恵まれていると同じく、あなたがすべてのことに恵まれ、またすこやかであるようにと、わたしは祈っている。」(ヨハネ第三2)</p>
-            <h3>健康の法則 (真の治療法)</h3>
-            <ul>
-                <li>新鮮な空気ときれいな水</li>
-                <li>日光と規則正しい生活</li>
-                <li>節制と正しい食事 (菜食)</li>
-                <li>適度な運動と休息</li>
-                <li>神の力に頼ること</li>
-            </ul>
-            <p>これら自然の法則に従うことが、身体と心の健康を保つ最良の方法です。</p>
-        </div>
-
-        <div id="study-sabbath">
-            <h2>安息日 / Sabbath ― 創造の記念日</h2>
-            <p>「安息日を覚えて、これを聖とせよ。六日のあいだ働いてあなたのすべてのわざをせよ。七日目はあなたの神、主の安息である」(出エジプト20:8-10)</p>
-            <p>安息日は単なる休日ではなく、天地の創造主を礼拝し、神との交わりを深めるために特別に聖別された日です。週の第七日目(土曜日)を安息日として守ることは、神様を愛し、その戒めに従うことのしるしです。</p>
-        </div>
     </div>
 
     <script src="js/navigation.js"></script>

@@ -21,75 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(tile);
     });
 
-    // Modal Logic
-    const modal = document.getElementById('content-modal');
-    const modalBody = modal?.querySelector('.modal-body');
-    const modalClose = modal?.querySelector('.modal-close');
-    let lastFocusedElement = null;
+    // Inline Disclosure Logic (Expansion)
+    function toggleDisclosure(tile) {
+        const isExpanded = tile.classList.contains('expanded');
+        const btn = tile.querySelector('.toggle-btn');
 
-    function openModal(contentHtml, triggerBtn) {
-        if (!modal || !modalBody) return;
+        // Toggle the expanded class
+        tile.classList.toggle('expanded');
 
-        lastFocusedElement = triggerBtn;
-        modalBody.innerHTML = contentHtml;
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
-        // Accessibility: Focus the close button
-        setTimeout(() => {
-            modalClose?.focus();
-        }, 100);
-    }
-
-    function closeModal() {
-        if (!modal) return;
-        modal.classList.remove('active');
-        document.body.style.overflow = '';
-
-        // Accessibility: Return focus
-        if (lastFocusedElement) {
-            lastFocusedElement.focus();
-        }
-
-        // Stop any playing audio in modal if necessary
-        const modalAudio = modalBody.querySelector('audio');
-        if (modalAudio) modalAudio.pause();
-    }
-
-    // Keyboard Accessibility
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && modal?.classList.contains('active')) {
-            closeModal();
-        }
-    });
-
-    // Focus Trap
-    modal?.addEventListener('keydown', (e) => {
-        if (e.key !== 'Tab' || !modal.classList.contains('active')) return;
-
-        const focusableElements = modal.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-        if (focusableElements.length === 0) return;
-
-        const firstElement = focusableElements[0];
-        const lastElement = focusableElements[focusableElements.length - 1];
-
-        if (e.shiftKey) {
-            if (document.activeElement === firstElement) {
-                lastElement.focus();
-                e.preventDefault();
+        // Update button text
+        if (btn) {
+            const originalText = btn.getAttribute('data-original-text') || '詳しく読む →';
+            if (!btn.getAttribute('data-original-text')) {
+                btn.setAttribute('data-original-text', btn.textContent);
             }
-        } else {
-            if (document.activeElement === lastElement) {
-                firstElement.focus();
-                e.preventDefault();
-            }
+            btn.innerHTML = isExpanded ? originalText : '閉じる ×';
         }
-    });
 
-    modalClose?.addEventListener('click', closeModal);
-    modal?.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+        // If expanding, scroll into view
+        if (!isExpanded) {
+            setTimeout(() => {
+                tile.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 400);
+        }
+    }
 
     // Global Audio Player
     let currentAudio = null;
@@ -130,9 +85,20 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Event Delegation for Buttons
+    // Event Delegation
     document.addEventListener('click', (e) => {
         const target = e.target;
+
+        // Toggle buttons (for inline expansion)
+        if (target.classList.contains('toggle-btn') || target.closest('.toggle-btn')) {
+            e.preventDefault();
+            const btn = target.classList.contains('toggle-btn') ? target : target.closest('.toggle-btn');
+            const tileId = btn.getAttribute('data-target');
+            const tile = document.getElementById(tileId) || btn.closest('.bento-tile');
+            if (tile) {
+                toggleDisclosure(tile);
+            }
+        }
 
         // Audio buttons
         if (target.classList.contains('play-audio') || target.closest('.play-audio')) {
@@ -143,15 +109,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 playAudio(url, btn.querySelector('.material-icons') || btn);
             }
         }
+    });
 
-        // Read more / Expand buttons
-        if (target.classList.contains('expand-btn') || target.closest('.expand-btn')) {
-            e.preventDefault();
-            const btn = target.classList.contains('expand-btn') ? target : target.closest('.expand-btn');
-            const targetId = btn.getAttribute('data-target');
-            const content = document.getElementById(targetId);
-            if (content) {
-                openModal(content.innerHTML, btn);
+    // Keyboard support for interactive tiles
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            const focused = document.activeElement;
+            if (focused && focused.classList.contains('toggle-btn')) {
+                e.preventDefault();
+                focused.click();
             }
         }
     });
