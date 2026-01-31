@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    const tiles = document.querySelectorAll('.bento-tile, .bento-card');
+    const tiles = document.querySelectorAll('.bento-tile, .bento-card, .theme-card');
     tiles.forEach((tile, index) => {
         tile.style.transitionDelay = `${index * 0.05}s`;
         tile.classList.add('pre-reveal');
@@ -51,37 +51,39 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    modalClose.addEventListener('click', closeModal);
-    modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeModal();
-    });
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) closeModal();
+        });
+    }
 
-    // Audio Logic
+    // Enhanced Audio Logic
     const mainAudio = document.getElementById('main-audio');
     const playerBar = document.getElementById('global-player');
-    const nowPlaying = document.querySelector('.now-playing');
+    const nowPlayingTitle = document.querySelector('.now-playing-title');
 
-    document.querySelectorAll('.audio-card').forEach(card => {
-        const playBtn = card.querySelector('.play-btn');
-        const audioSrc = card.getAttribute('data-src');
-        const title = card.querySelector('h3').textContent;
+    document.addEventListener('click', (e) => {
+        const playBtn = e.target.closest('.play-trigger');
+        if (!playBtn) return;
 
-        if (playBtn && audioSrc) {
-            playBtn.addEventListener('click', () => {
-                if (mainAudio.src !== audioSrc) {
-                    mainAudio.src = audioSrc;
-                    nowPlaying.textContent = `再生中: ${title}`;
-                    playerBar.style.display = 'flex';
-                }
+        const audioSrc = playBtn.getAttribute('data-src');
+        const title = playBtn.getAttribute('data-title');
 
-                if (mainAudio.paused) {
-                    mainAudio.play();
-                    playBtn.textContent = '停止';
-                } else {
-                    mainAudio.pause();
-                    playBtn.textContent = '再生する';
-                }
-            });
+        if (mainAudio.src !== audioSrc) {
+            mainAudio.src = audioSrc;
+            if (nowPlayingTitle) nowPlayingTitle.textContent = title;
+            if (playerBar) playerBar.style.display = 'flex';
+            // Reset all other play buttons
+            document.querySelectorAll('.play-trigger').forEach(b => b.textContent = '▶');
+        }
+
+        if (mainAudio.paused) {
+            mainAudio.play();
+            playBtn.textContent = '⏸';
+        } else {
+            mainAudio.pause();
+            playBtn.textContent = '▶';
         }
     });
 

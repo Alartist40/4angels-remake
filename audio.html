@@ -10,6 +10,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .theme-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 2rem; }
+        .theme-card { background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .theme-title { font-size: 1.75rem; color: var(--primary-color); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 10px; }
+        .theme-title i { font-style: normal; opacity: 0.5; }
+        .sermon-list { list-style: none; padding: 0; }
+        .sermon-item { display: flex; align-items: center; justify-content: space-between; padding: 1rem 0; border-bottom: 1px solid #f0f0f0; }
+        .sermon-item:last-child { border-bottom: none; }
+        .sermon-info { display: flex; flex-direction: column; }
+        .sermon-name { font-weight: 600; font-size: 1rem; color: var(--text-color); }
+        .sermon-date { font-size: 0.8rem; opacity: 0.6; }
+        .play-trigger { background: var(--secondary-color); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; transition: transform 0.2s; }
+        .play-trigger:hover { transform: scale(1.1); background: var(--primary-color); }
+        .player-bar { position: fixed; bottom: 0; left: 0; width: 100%; background: white; padding: 1rem 2rem; box-shadow: 0 -5px 20px rgba(0,0,0,0.1); display: none; align-items: center; justify-content: space-between; z-index: 1000; border-top: 2px solid var(--secondary-color); }
+        .now-playing-info { flex: 1; }
+        .now-playing-label { font-size: 0.7rem; text-transform: uppercase; color: var(--secondary-color); font-weight: bold; }
+        .now-playing-title { font-size: 1rem; font-weight: 700; }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -34,96 +52,113 @@
         </header>
 
         <main>
-            <section class="hero-bento">
-                <div class="bento-card hero-card">
-                    <span class="card-label">SERMON AUDIO</span>
-                    <h1>礼拝説教オーディオ</h1>
-                    <p>正丸教会で行われた礼拝説教の録音アーカイブです。いつでも、どこでも神の言葉に耳を傾けることができます。</p>
+            <section class="hero-bento" style="margin-bottom: 3rem;">
+                <div class="bento-card hero-card" style="background: var(--primary-color); color: white;">
+                    <span class="card-label">AUDIO ARCHIVE</span>
+                    <h1>み言葉を聴く</h1>
+                    <p>テーマ別に整理された説教の録音。神の愛と真理のメッセージを、いつでも心に。</p>
                 </div>
             </section>
 
-            <div class="audio-player-bar" id="global-player">
-                <div class="player-info">
-                    <span class="now-playing">再生中: 未選択</span>
+            <div class="theme-grid">
+                <!-- Theme 1: 山上の垂訓 -->
+                <div class="theme-card">
+                    <h2 class="theme-title"><i>01</i> 山上の垂訓</h2>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">イエス・キリストが山の上で語られた、神の国の憲章。</p>
+                    <ul class="sermon-list">
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">狭い門から入りなさい</span>
+                                <span class="sermon-date">2023.07.15</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230715.mp3" data-title="狭い門から入りなさい">▶</button>
+                        </li>
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">あなたがたは地の塩である</span>
+                                <span class="sermon-date">2023.07.08</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230708.mp3" data-title="あなたがたは地の塩である">▶</button>
+                        </li>
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">裁いてはならない</span>
+                                <span class="sermon-date">2023.06.03</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/06/20230603.mp3" data-title="裁いてはならない">▶</button>
+                        </li>
+                    </ul>
                 </div>
-                <div class="player-controls">
-                    <audio id="main-audio" controls></audio>
+
+                <!-- Theme 2: 預言と再臨 -->
+                <div class="theme-card">
+                    <h2 class="theme-title"><i>02</i> 預言と再臨</h2>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">時のしるしを読み解き、主の再臨への備えを説くメッセージ。</p>
+                    <ul class="sermon-list">
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">預言の確かさ</span>
+                                <span class="sermon-date">2023.05.06</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/05/20230506.mp3" data-title="預言の確かさ">▶</button>
+                        </li>
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">キリストの再臨</span>
+                                <span class="sermon-date">2023.04.29</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/04/20230429.mp3" data-title="キリストの再臨">▶</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Theme 3: 健康と安息日 -->
+                <div class="theme-card">
+                    <h2 class="theme-title"><i>03</i> 健康と安息日</h2>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">創造の秩序に基づいた安息の祝福と、健康な歩み。</p>
+                    <ul class="sermon-list">
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">安息日：天地創造の記念日</span>
+                                <span class="sermon-date">2023.05.20</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/05/20230520.mp3" data-title="安息日：天地創造の記念日">▶</button>
+                        </li>
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">健康改革の祝福</span>
+                                <span class="sermon-date">2023.05.13</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/05/20230513.mp3" data-title="健康改革の祝福">▶</button>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Theme 4: 特別な招き -->
+                <div class="theme-card">
+                    <h2 class="theme-title"><i>04</i> 特別な招き</h2>
+                    <p style="margin-bottom: 1.5rem; opacity: 0.7;">一人ひとりの心の戸をたたく、キリストの愛の招き。</p>
+                    <ul class="sermon-list">
+                        <li class="sermon-item">
+                            <div class="sermon-info">
+                                <span class="sermon-name">見よ、わたしは戸の外に立って</span>
+                                <span class="sermon-date">2023.07.22</span>
+                            </div>
+                            <button class="play-trigger" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230722.mp3" data-title="見よ、わたしは戸の外に立って">▶</button>
+                        </li>
+                    </ul>
                 </div>
             </div>
-
-            <section class="sermon-grid">
-                <!-- Most Recent -->
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230722.mp3">
-                    <span class="date">2023.07.22</span>
-                    <h3>見よ、わたしは戸の外に立って、たたいている</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230715.mp3">
-                    <span class="date">2023.07.15</span>
-                    <h3>狭い門から入りなさい</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/07/20230708.mp3">
-                    <span class="date">2023.07.08</span>
-                    <h3>あなたがたは地の塩である</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <!-- Theme: Prophecy -->
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/06/prophecy-01.mp3">
-                    <span class="card-label">預言シリーズ</span>
-                    <span class="date">2023.06.24</span>
-                    <h3>ダニエル書2章：帝国の興亡と神の国</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/06/prophecy-02.mp3">
-                    <span class="card-label">預言シリーズ</span>
-                    <span class="date">2023.06.17</span>
-                    <h3>ダニエル書7章：四つの獣と調査審判</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/05/health-01.mp3">
-                    <span class="card-label">健康改革</span>
-                    <span class="date">2023.05.20</span>
-                    <h3>あなたの体は聖霊の宮である</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/04/sanctuary-01.mp3">
-                    <span class="card-label">聖所制度</span>
-                    <span class="date">2023.04.15</span>
-                    <h3>地上の聖所と天の聖所</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/03/commandments-01.mp3">
-                    <span class="card-label">十戒</span>
-                    <span class="date">2023.03.11</span>
-                    <h3>安息日：創造の記念日</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-
-                <div class="bento-card audio-card" data-src="https://4angels.jp/wp-content/uploads/2023/02/second-coming-01.mp3">
-                    <span class="card-label">再臨の希望</span>
-                    <span class="date">2023.02.25</span>
-                    <h3>見よ、わたしはすぐに来る</h3>
-                    <p class="preacher">説教者: 牧師</p>
-                    <button class="play-btn">再生する</button>
-                </div>
-            </section>
         </main>
+
+        <!-- Global Player Bar -->
+        <div class="player-bar" id="global-player">
+            <div class="now-playing-info">
+                <div class="now-playing-label">Now Playing</div>
+                <div class="now-playing-title">未選択</div>
+            </div>
+            <audio id="main-audio" controls style="flex: 2; max-width: 600px;"></audio>
+        </div>
 
         <footer class="main-footer">
             <p>&copy; 2023-2025 Shomaru Church. Seventh-day Adventist Reform Movement.</p>

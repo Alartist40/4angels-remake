@@ -11,10 +11,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        .archive-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
-        .archive-item { background: #f0f4f8; padding: 0.75rem; border-radius: 8px; text-decoration: none; color: var(--primary-color); font-size: 0.9rem; text-align: center; transition: background 0.2s; }
-        .archive-item:hover { background: var(--secondary-color); color: white; }
-        .pub-section { margin-bottom: 4rem; }
+        .archive-section { margin-bottom: 4rem; }
+        .year-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .year-card { background: white; padding: 1.5rem; border-radius: 1rem; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .year-title { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 1rem; border-bottom: 1px solid #eee; padding-bottom: 0.5rem; }
+        .month-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; }
+        .pdf-link { font-size: 0.8rem; background: #f0f4f8; padding: 0.5rem; border-radius: 4px; text-align: center; color: var(--primary-color); text-decoration: none; transition: background 0.2s; }
+        .pdf-link:hover { background: var(--secondary-color); color: white; }
+        .pub-header { margin-bottom: 2rem; padding: 2.5rem; background: var(--primary-color); color: white; border-radius: 1.5rem; text-align: center; }
+        .older-archives { margin-top: 3rem; background: #f9f9f9; padding: 2rem; border-radius: 1rem; }
+        .older-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 1rem; }
+        .year-link { display: block; padding: 0.75rem; background: white; border-radius: 8px; text-align: center; border: 1px solid #ddd; text-decoration: none; color: #555; }
+        .year-link:hover { border-color: var(--secondary-color); color: var(--secondary-color); }
     </style>
 </head>
 <body>
@@ -40,62 +48,130 @@
         </header>
 
         <main>
-            <section class="hero-bento">
-                <div class="bento-card hero-card">
-                    <span class="card-label">PUBLISHING</span>
-                    <h1>出版物</h1>
-                    <p>信仰の糧となる「永遠の真理」と、体系的な聖書研究のための「安息日学校教科」。</p>
-                </div>
-            </section>
+            <div class="pub-header">
+                <h1>永遠の真理</h1>
+                <p>Eternal Truth Archives</p>
+            </div>
 
-            <section class="pub-section">
-                <div class="bento-card">
-                    <h2>永遠の真理 / Eternal Truth</h2>
-                    <p>2010年からの月刊アーカイブ。PDFで全文をお読みいただけます。</p>
-                    <div class="archive-grid">
-                        <a href="https://4angels.jp/et/et2026/" class="archive-item">2026年</a>
-                        <a href="https://4angels.jp/et/et2025/" class="archive-item">2025年</a>
-                        <a href="https://4angels.jp/et/et2024/" class="archive-item">2024年</a>
-                        <a href="https://4angels.jp/et/et2023/" class="archive-item">2023年</a>
-                        <a href="https://4angels.jp/et/et2022/" class="archive-item">2022年</a>
-                        <a href="https://4angels.jp/et/et2021/" class="archive-item">2021年</a>
-                        <a href="https://4angels.jp/et/et2020/" class="archive-item">2020年</a>
-                        <a href="https://4angels.jp/et/et2019/" class="archive-item">2019年</a>
-                        <a href="https://4angels.jp/et/et2018/" class="archive-item">2018年</a>
-                        <a href="https://4angels.jp/et/et2017/" class="archive-item">2017年</a>
-                        <a href="https://4angels.jp/et/et2016/" class="archive-item">2016年</a>
-                        <a href="https://4angels.jp/et/et2015/" class="archive-item">2015年</a>
-                        <a href="https://4angels.jp/et/et2014/" class="archive-item">2014年</a>
-                        <a href="https://4angels.jp/et/et2013/" class="archive-item">2013年</a>
-                        <a href="https://4angels.jp/et/et2012/" class="archive-item">2012年</a>
-                        <a href="https://4angels.jp/et/et2011/" class="archive-item">2011年</a>
-                        <a href="https://4angels.jp/et/et2010/" class="archive-item">2010年</a>
+            <section class="archive-section">
+                <div class="year-grid">
+                    <div class="year-card">
+                        <div class="year-title">2026</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2026/et202601-02_web.pdf" class="pdf-link">1-2月</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2025</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2025/et20250102.pdf" class="pdf-link">1-2月</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/et20250304.pdf" class="pdf-link">3-4月</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/et20250506.pdf" class="pdf-link">5-6月</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/et20250708.pdf" class="pdf-link">7-8月</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/et20250910.pdf" class="pdf-link">9-10月</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/et20251112.pdf" class="pdf-link">11-12月</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2024</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2024/et20240102.pdf" class="pdf-link">1-2月</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/et20240304.pdf" class="pdf-link">3-4月</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/et20240506.pdf" class="pdf-link">5-6月</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/et20240708.pdf" class="pdf-link">7-8月</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/et20240910.pdf" class="pdf-link">9-10月</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/et20241112.pdf" class="pdf-link">11-12月</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2023</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2023/et202301.pdf" class="pdf-link">1月</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/et202302.pdf" class="pdf-link">2月</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/et202303.pdf" class="pdf-link">3月</a>
+                            <a href="http://4angels.jp/wp-content/uploads/2023/04/et202304.pdf" class="pdf-link">4月</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/et202305.pdf" class="pdf-link">5月</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/et202306.pdf" class="pdf-link">6月</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/et202307.pdf" class="pdf-link">7月</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2022</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2022/et202201.pdf" class="pdf-link">1月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202202.pdf" class="pdf-link">2月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202203.pdf" class="pdf-link">3月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202204.pdf" class="pdf-link">4月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202205.pdf" class="pdf-link">5月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202206.pdf" class="pdf-link">6月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202207.pdf" class="pdf-link">7月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202208.pdf" class="pdf-link">8月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202209.pdf" class="pdf-link">9月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202210.pdf" class="pdf-link">10月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202211.pdf" class="pdf-link">11月</a>
+                            <a href="http://4angels.jp/wp/ebook/2022/et202212.pdf" class="pdf-link">12月</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="older-archives">
+                    <h3 style="margin-bottom: 1rem;">過去のアーカイブ (2010-2021)</h3>
+                    <div class="older-grid">
+                        <a href="https://4angels.jp/et/et2021/" class="year-link">2021</a>
+                        <a href="https://4angels.jp/et/et2020/" class="year-link">2020</a>
+                        <a href="https://4angels.jp/et/et2019/" class="year-link">2019</a>
+                        <a href="https://4angels.jp/et/et2018/" class="year-link">2018</a>
+                        <a href="https://4angels.jp/et/et2017/" class="year-link">2017</a>
+                        <a href="https://4angels.jp/et/et2016/" class="year-link">2016</a>
+                        <a href="https://4angels.jp/et/et2015/" class="year-link">2015</a>
+                        <a href="https://4angels.jp/et/et2014/" class="year-link">2014</a>
+                        <a href="https://4angels.jp/et/et2013/" class="year-link">2013</a>
+                        <a href="https://4angels.jp/et/et2012/" class="year-link">2012</a>
+                        <a href="https://4angels.jp/et/et2011/" class="year-link">2011</a>
+                        <a href="https://4angels.jp/et/et2010/" class="year-link">2010</a>
                     </div>
                 </div>
             </section>
 
-            <section class="pub-section">
-                <div class="bento-card">
-                    <h2>安息日学校教科 / Sabbath Bible Lesson</h2>
-                    <p>世界共通の聖書研究ガイド。過去の期別の学びも網羅しています。</p>
-                    <div class="archive-grid">
-                        <a href="https://4angels.jp/sbl/sbl2026/" class="archive-item">2026年</a>
-                        <a href="https://4angels.jp/sbl/sbl2025/" class="archive-item">2025年</a>
-                        <a href="https://4angels.jp/sbl/sbl2024/" class="archive-item">2024年</a>
-                        <a href="https://4angels.jp/sbl/sbl2023/" class="archive-item">2023年</a>
-                        <a href="https://4angels.jp/sbl/sbl2022/" class="archive-item">2022年</a>
-                        <a href="https://4angels.jp/sbl/sbl2021/" class="archive-item">2021年</a>
-                        <a href="https://4angels.jp/sbl/sbl2020/" class="archive-item">2020年</a>
-                        <a href="https://4angels.jp/sbl/sbl2019/" class="archive-item">2019年</a>
-                        <a href="https://4angels.jp/sbl/sbl2018/" class="archive-item">2018年</a>
-                        <a href="https://4angels.jp/sbl/sbl2017/" class="archive-item">2017年</a>
-                        <a href="https://4angels.jp/sbl/sbl2016/" class="archive-item">2016年</a>
-                        <a href="https://4angels.jp/sbl/sbl2015/" class="archive-item">2015年</a>
-                        <a href="https://4angels.jp/sbl/sbl2014/" class="archive-item">2014年</a>
-                        <a href="https://4angels.jp/sbl/sbl2013/" class="archive-item">2013年</a>
-                        <a href="https://4angels.jp/sbl/sbl2012/" class="archive-item">2012年</a>
-                        <a href="https://4angels.jp/sbl/sbl2011/" class="archive-item">2011年</a>
-                        <a href="https://4angels.jp/sbl/sbl2010/" class="archive-item">2010年</a>
+            <div class="pub-header" style="background: var(--secondary-color);">
+                <h1>安息日学校教科</h1>
+                <p>Sabbath Bible Lesson Archives</p>
+            </div>
+
+            <section class="archive-section">
+                <div class="year-grid">
+                    <div class="year-card">
+                        <div class="year-title">2026</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2026/sbl01-2026web.pdf" class="pdf-link">第1期</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2025</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2025/sbl01-2025.pdf" class="pdf-link">第1期</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/sbl02-2025.pdf" class="pdf-link">第2期</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/sbl03-2025.pdf" class="pdf-link">第3期</a>
+                            <a href="http://4angels.jp/wp/ebook/2025/sbl04-2025.pdf" class="pdf-link">第4期</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2024</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2024/sbl01-2024.pdf" class="pdf-link">第1期</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/sbl02-2024.pdf" class="pdf-link">第2期</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/sbl03-2024.pdf" class="pdf-link">第3期</a>
+                            <a href="http://4angels.jp/wp/ebook/2024/sbl04-2024.pdf" class="pdf-link">第4期</a>
+                        </div>
+                    </div>
+                    <div class="year-card">
+                        <div class="year-title">2023</div>
+                        <div class="month-links">
+                            <a href="http://4angels.jp/wp/ebook/2023/sbl01-2023.pdf" class="pdf-link">第1期</a>
+                            <a href="http://4angels.jp/wp-content/uploads/2023/03/sbl02-2023web.pdf" class="pdf-link">第2期</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/sbl03-2023.pdf" class="pdf-link">第3期</a>
+                            <a href="http://4angels.jp/wp/ebook/2023/sbl04-2023.pdf" class="pdf-link">第4期</a>
+                        </div>
                     </div>
                 </div>
             </section>
