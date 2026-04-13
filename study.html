@@ -10,6 +10,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .bible-study-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
+        }
+        .bible-study-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .bible-study-list li:last-child {
+            border-bottom: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -38,57 +52,141 @@
             <section class="bento-tile span-4">
                 <span class="tile-category">Bible Study</span>
                 <h1 class="tile-title" style="font-size: 2.5rem;">聖書を学ぶ</h1>
-                <p class="tile-description">現代の真理、健康、安息日についての学び。</p>
+                <p class="tile-description">現代の真理、健康、安息日についての学び。私たちは聖書を人生の唯一の指針としています。</p>
             </section>
 
-            <!-- Present Truth -->
-            <section class="bento-tile span-2 row-2 tile-blue-tint">
-                <h2 class="tile-title">現代の真理 / Present Truth</h2>
-                <p class="tile-description">時代に必要なメッセージを学びます。</p>
-                <ul style="margin-top: 1rem; list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1rem;">
-                    <li style="padding: 1rem; background: rgba(255,255,255,0.5); border-radius: var(--radius);">
-                        <strong>１. 「神の憐れみの最後の招き」</strong><br>
-                        <small>黙示録14章のメッセージの重要性。</small>
-                    </li>
-                    <li style="padding: 1rem; background: rgba(255,255,255,0.5); border-radius: var(--radius);">
-                        <strong>２. 「第三天使の大いなる叫び」</strong><br>
-                        <small>終わりの時代の警告。</small>
-                    </li>
-                    <li style="padding: 1rem; background: rgba(255,255,255,0.5); border-radius: var(--radius);">
-                        <strong>３. 「最も尊いメッセージ」</strong><br>
-                        <small>キリストの義による義認。</small>
-                    </li>
-                </ul>
-            </section>
+            <!-- Study 1 -->
+            <section class="bento-tile span-2 tile-blue-tint" id="study-1">
+                <span class="tile-category">Present Truth - Study 1</span>
+                <h2 class="tile-title">神の憐れみの最後の招き</h2>
+                <p class="tile-description">黙示録14章のメッセージの重要性と、ノアの時代の経験から学ぶ現代への警告。</p>
+                <div class="tile-footer">
+                    <button class="btn-more toggle-btn" data-target="study-1">詳しく読む →</button>
+                </div>
+                <div class="disclosure-content">
+                    <p>わたしたちが現代の真理を学ぶとき、今は最後のメッセージが伝えられる時だということを知っています。しかし、最後の招き、最後の警告と聞いて、わたしたちは何を考えるでしょうか。同じ言葉を聞いても、どのように考えるかによって、その結果が変わります。</p>
+                    <p>自分にとって最後の警告とは何だろうか—最後になったら聞こえてくる警告、すなわち新しい警告でしょうか。あるいは、これまで与えられてきた警告が、最後に繰り返されることを意味しているでしょうか。</p>
+                    <p>今回の主題である最後の招きを final callと言いますが、ある場所でこの言葉をよく耳にします。そうです、空港です。つまり、最後の招きということです。もし最終案内がその時初めて聞こえる新しい案内であれば、空港は混乱することでしょう。それは、何度もこれまで繰り返されてきた案内がこれを最後に止む、すなわちその後は戸が閉まることを意味します。</p>
 
-            <!-- Health Intro -->
-            <section class="bento-tile span-2 tile-accent-tint">
-                <h2 class="tile-title">健康 / Health ― 神様の賜物</h2>
-                <p class="tile-description">「愛する者よ。あなたのたましいがいつも恵まれていると同じく、あなたがすべてのことに恵まれ、またすこやかであるようにと、わたしは祈っている。」(ヨハネ第三2)</p>
-            </section>
+                    <h4>ノアの時のように</h4>
+                    <p>イエスは「人の子の現われるの」も、「ちょうどノアの時のようであろう」と言われました。「すなわち、洪水の出る前、ノアが箱舟にはいる日まで、人々は食い、飲み、めとり、とつぎなどしていた。そして洪水が襲ってきて、いっさいのものをさらって行くまで、彼らは気がつかなかった。人の子の現れるのも、そのようであろう」（マタイ 24:37-39）。</p>
+                    <p>ノアの時代の警告の内容は、「箱舟に入りなさい」ということでした。人の子の現われる時代、すなわち現代は、「至聖所に入りなさい」という招きです。</p>
 
-            <!-- Health Laws -->
-            <section class="bento-tile span-2 tile-dark">
-                <h3 class="tile-title" style="color: var(--ice-blue);">健康の法則 (真の治療法)</h3>
-                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1rem; color: white;">
-                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">空気と水</div>
-                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">日光と規則正しい生活</div>
-                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">節制と正しい食事</div>
-                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">運動と休息</div>
-                    <div style="padding: 0.5rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px; grid-column: span 2;">神の力に頼ること</div>
+                    <h4>選ばれた人の資格</h4>
+                    <ol>
+                        <li>「（ノアが）わたしの前に正しい人であるとわたしは認めたからである」、すなわち、ノアは義と認められた人、義認された人でした （創世記 7:1）。</li>
+                        <li>「義の宣伝者ノア」（ペテロ第二 2:5）、彼は義の宣伝者でした。</li>
+                        <li>彼は「義を受け継ぐ者」となったとあります（へブル 11:7）。</li>
+                    </ol>
+                    <p>神に義と認められた人が、義を宣伝し、伝えた通りに義を受け継ぐ者となることがわかります。現代も同じです。自分が憐れみを受けた「わが民」が、「神の憐れみの最後のメッセージ」を伝えるのです。</p>
                 </div>
             </section>
 
-            <!-- Sabbath -->
-            <section class="bento-tile span-4">
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
-                    <div>
-                        <h2 class="tile-title">安息日 / Sabbath ― 創造の記念日</h2>
-                        <p class="tile-description">「安息日を覚えて、これを聖とせよ。六日のあいだ働いてあなたのすべてのわざをせよ。七日目はあなたの神、主の安息である」(出エジプト20:8-10)</p>
-                    </div>
-                    <div>
-                        <p style="font-size: 0.9rem; line-height: 1.6;">安息日は単なる休日ではなく、天地の創造主を礼拝し、神との交わりを深めるために特別に聖別された日です。週の第七日目(土曜日)を安息日として守ることは、神様を愛し、その戒めに従うことのしるしです。</p>
-                    </div>
+            <!-- Study 2 -->
+            <section class="bento-tile tile-accent-tint" id="study-2">
+                <span class="tile-category">Study 2</span>
+                <h2 class="tile-title">第三天使の大いなる叫び</h2>
+                <p class="tile-description">終わりの時代の警告と、心の正しい人々への呼びかけ。</p>
+                <div class="tile-footer">
+                    <button class="btn-more toggle-btn" data-target="study-2">読む →</button>
+                </div>
+                <div class="disclosure-content">
+                    <p>「わたしは、神が、名目的再臨信徒たちと、堕落した教会の中に、心の正しい人々を持っておられるのを見た。そして、牧師や信者たちが、災害が、くだされる前に、これらの教会から呼び出されて、喜んで真理を受け入れることをわたしは見た。……心の正しい人はみな、堕落した諸教会を去り、残りの民に加わるのである」（初代文集 424）。</p>
+                    <p>この中に「心の正しい」とある人々は、honest（正直）である人々のことです。つまり、サタンの偽善から守られるのは、正直な人々だということがわかります。</p>
+
+                    <h4>光と栄光</h4>
+                    <p>「起きよ、光を放て。あなたの光が臨み、主の栄光があなたの上にのぼったから。見よ、暗きは地をおおい、やみはもろもろの民をおおう。しかし、あなたの上には主が朝日のごとくのぼられ、主の栄光があなたの上にあらわれる。もろもろの国は、あなたの光に来、もろもろの王は、のぼるあなたの輝きに来る」（イザヤ 60:1-3）。</p>
+                    <p>世界は神に関する誤った解釈の暗黒におおわれています。人びとは、神の品性の知識を見失い、それを誤解し、誤って理解しています。神の品性を明らかにしなければなりません。世界の暗黒の中に、神の栄光の光、恵みとあわれみと真理の光が輝かなければなりません。</p>
+                    <p>大いなる叫びとは、神のご品性を擁護することであり、神の律法を守ることなのです。</p>
+                </div>
+            </section>
+
+            <!-- Study 3 -->
+            <section class="bento-tile" id="study-3">
+                <span class="tile-category">Study 3</span>
+                <h2 class="tile-title">最も尊いメッセージ</h2>
+                <p class="tile-description">キリストの義による義認。これこそ、まさに第三天使のメッセージそのものです。</p>
+                <div class="tile-footer">
+                    <button class="btn-more toggle-btn" data-target="study-3">読む →</button>
+                </div>
+                <div class="disclosure-content">
+                    <p>「主はその大いなる憐れみのうちに、ワゴナ―長老とジョーンズ長老を通して、ご自分の民に最も尊いメッセージを送ってくださった。このメッセージは世の前に上げられた救い主、全世界の罪のための犠牲をもっと顕著に提示するためのものであった。それは保証人（担保）を信じる信仰を通しての義認を提示し、神のすべての戒めへの従順のうちに表されているキリストの義を受けるように民を招いた。……これこそ、神が世に与えるようにと命じておられるメッセージである。それは第三天使のメッセージであり、大声で宣布され、大規模なこのお方の御霊の注ぎが伴うべきメッセージである」（牧師への証 91, 92）。</p>
+
+                    <h4>キリストの義</h4>
+                    <p>「高価な真珠一個を見いだすと、行って持ち物をみな売りはらい、そしてこれを買うのである」（マタイ13:46）。そして「キリストの義は、純粋な白真珠」とあります。</p>
+                    <p>「数名の人がわたしに手紙をよこし、信仰による義認のメッセージは、第三天使のメッセージかと問うてきた。そしてわたしは答えた、『それこそ、まさに第三天使のメッセージそのものである』と」（セレクト・メッセージ1巻 372）。</p>
+                    <p>最も尊いのは、命・血・義です。信仰によってこれを受ける者は、神の前に義と認められ、新しい命を歩む力を受けるのです。</p>
+                </div>
+            </section>
+
+            <!-- Health Section -->
+            <section class="bento-tile span-2 tile-dark" id="health-section">
+                <span class="tile-category" style="color: var(--ice-blue);">Health</span>
+                <h2 class="tile-title" style="color: white;">健康 ― 神様の賜物</h2>
+                <p class="tile-description" style="color: rgba(255,255,255,0.8);">「あなたがすべてのことに恵まれ、またすこやかであるようにと、わたしは祈っている。」(ヨハネ第三2)</p>
+
+                <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 1rem; color: white; font-size: 0.8rem;">
+                    <div style="padding: 0.4rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">空気と水</div>
+                    <div style="padding: 0.4rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">日光と規則</div>
+                    <div style="padding: 0.4rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">節制と食事</div>
+                    <div style="padding: 0.4rem; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;">運動と休息</div>
+                </div>
+
+                <div class="tile-footer">
+                    <button class="btn-more toggle-btn" data-target="health-section" style="color: var(--ice-blue); border-color: var(--ice-blue);">健康の法則を学ぶ →</button>
+                </div>
+                <div class="disclosure-content">
+                    <p>「いのちの泉はあなたのもとにあり」（詩篇36:9）。これが、わたしたち一人ひとりに対する神様のみ思いです。親が子の健康を願う以上に、神様はわたしたちが健康で幸福であることを、切に望んでおられます。</p>
+
+                    <h4>病気は結果である</h4>
+                    <p>病気は「原因」ではなく「結果」です。多くの場合、原因を見誤り、症状だけを抑えようとしますが、原因を取り除き、健康な血液が循環できる状態にしないかぎり、真の回復はありません。</p>
+
+                    <h4>健康の法則 (真の治療法)</h4>
+                    <p>「新鮮な空気、日光、節制、休息、運動、適切な食事、水の使用、神の力に頼ること、これが真の療法である。」（Ministry of Healing 127）</p>
+                    <ul style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; list-style: none; padding: 0;">
+                        <li style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius);">
+                            <strong>1. 新鮮な空気ときれいな水</strong><br>
+                            生命の維持に不可欠な基本。
+                        </li>
+                        <li style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius);">
+                            <strong>2. 日光と規則正しい生活</strong><br>
+                            身体のリズムを整えます。
+                        </li>
+                        <li style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius);">
+                            <strong>3. 節制と正しい食事</strong><br>
+                            菜食を中心としたバランスの良い食事。
+                        </li>
+                        <li style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius);">
+                            <strong>4. 運動と休息</strong><br>
+                            適度な労働と質の高い眠り。
+                        </li>
+                        <li style="background: rgba(255,255,255,0.1); padding: 1rem; border-radius: var(--radius); grid-column: span 2;">
+                            <strong>5. 神の力に頼ること</strong><br>
+                            精神的な平安が肉体の健康に大きく影響します。
+                        </li>
+                    </ul>
+                    <p>「なおりたいのか」（ヨハネ5:6）。新しい命を歩みたいと願う人を、神様は決して拒まれません。</p>
+                </div>
+            </section>
+
+            <!-- Sabbath Section -->
+            <section class="bento-tile span-2 tile-blue-tint" id="sabbath-section">
+                <span class="tile-category">Sabbath</span>
+                <h2 class="tile-title">安息日 ― 創造の記念日</h2>
+                <p class="tile-description">「安息日を覚えて、これを聖とせよ。」天地の創造主を礼拝するための特別な聖別された日。</p>
+                <div class="tile-footer">
+                    <button class="btn-more toggle-btn" data-target="sabbath-section">安息日の意味を知る →</button>
+                </div>
+                <div class="disclosure-content">
+                    <p>「ママ！どうして僕の誕生日は一日しかないの？」誕生日は、その日に生まれたという「変わらない事実」に基づいています。同様に、安息日も神様が天地を創造されたという事実に基づいています。</p>
+                    <p>「こうして天と地と、その万象とが完成した。神は第七日にその作業を終えられた。……神はその第七日を祝福して、これを聖別された。」（創世記 2:1-3）</p>
+
+                    <h4>なぜ一週間のうちの一日なのか</h4>
+                    <p>週のサイクルは、天体の運行ではなく、神様が定められた「創造の週」に基づいています。歴史の中でカレンダーの変更はありましたが、一週間の順序は変わることなく現代に引き継がれています。第七日目（土曜日）は、創造主を礼拝するための記念日なのです。</p>
+
+                    <h4>霊と真理をもって</h4>
+                    <p>「まことの礼拝をする者たちが、霊とまこと（真理）とをもって父を礼拝する時が来る。」（ヨハネ 4:23）</p>
+                    <p>安息日は単なる休日ではなく、創造主を畏れ、その栄光を帰すための日です。あなたも、霊と真理をもって、創造主である神様に礼拝を捧げ、神様との交わりを深めませんか。</p>
                 </div>
             </section>
         </main>
