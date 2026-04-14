@@ -189,6 +189,21 @@
     height: 3px;
     background-color: var(--primary-color);
     border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
