@@ -3,14 +3,29 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelector('.nav-links');
 
     if (menuToggle && navLinks) {
-        menuToggle.addEventListener('click', () => {
-            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
+        const toggleMenu = (expand) => {
+            const isExpanded = expand !== undefined ? !expand : menuToggle.getAttribute('aria-expanded') === 'true';
+            const newState = !isExpanded;
+
+            menuToggle.setAttribute('aria-expanded', newState);
+            navLinks.classList.toggle('active', newState);
+
+            // Bilingual ARIA label update
+            const newLabel = newState ? 'メニューを閉じる / Close Menu' : 'メニューを開く / Open Menu';
+            menuToggle.setAttribute('aria-label', newLabel);
 
             // Animate toggle
             const spans = menuToggle.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('open'));
+            spans.forEach(span => span.classList.toggle('open', newState));
+        };
+
+        menuToggle.addEventListener('click', () => toggleMenu());
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+                toggleMenu(false);
+            }
         });
     }
 
