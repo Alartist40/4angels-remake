@@ -189,6 +189,19 @@
     height: 3px;
     background-color: var(--primary-color);
     border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span.open:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle span.open:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle span.open:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
