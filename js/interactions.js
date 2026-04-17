@@ -120,5 +120,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 focused.click();
             }
         }
+
+        if (e.key === 'Escape') {
+            const expandedTile = document.querySelector('.bento-tile.expanded');
+            if (expandedTile) {
+                toggleDisclosure(expandedTile);
+            }
+        }
     });
 });
