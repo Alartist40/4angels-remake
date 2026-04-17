@@ -5,14 +5,24 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
-            navLinks.classList.toggle('active');
+            const nextState = !isExpanded;
 
-            // Animate toggle
-            const spans = menuToggle.querySelectorAll('span');
-            spans.forEach(span => span.classList.toggle('open'));
+            menuToggle.setAttribute('aria-expanded', nextState);
+            menuToggle.setAttribute('aria-label', nextState ? 'メニューを閉じる / Close Menu' : 'メニューを開く / Open Menu');
+            menuToggle.classList.toggle('open');
+            navLinks.classList.toggle('active');
         });
     }
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+            menuToggle.setAttribute('aria-expanded', 'false');
+            menuToggle.setAttribute('aria-label', 'メニューを開く / Open Menu');
+            menuToggle.classList.remove('open');
+            navLinks.classList.remove('active');
+        }
+    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

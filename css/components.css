@@ -33,8 +33,20 @@
     margin-top: -2px;
 }
 
-.nav-link:hover {
+.nav-link:hover,
+.nav-link.active,
+.nav-link[aria-current="page"] {
     color: var(--secondary-color);
+}
+
+.nav-link.active::after,
+.nav-link[aria-current="page"]::after {
+    content: '';
+    width: 20px;
+    height: 2px;
+    background-color: var(--secondary-color);
+    margin-top: 4px;
+    border-radius: 2px;
 }
 
 /* Bento Tile Content */
@@ -185,10 +197,25 @@
 }
 
 .menu-toggle span {
+    display: block;
     width: 25px;
     height: 3px;
     background-color: var(--primary-color);
     border-radius: 2px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.menu-toggle.open span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.menu-toggle.open span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(10px);
+}
+
+.menu-toggle.open span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
 }
 
 @media (max-width: 768px) {
