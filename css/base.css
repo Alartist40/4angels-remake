@@ -58,6 +58,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Accessibility */
+:focus-visible {
+    outline: 3px solid var(--secondary-color);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
 .sr-only {
     position: absolute;
     width: 1px;
