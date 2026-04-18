@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle && navLinks) {
         menuToggle.addEventListener('click', () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
-            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            const nextExpanded = !isExpanded;
+
+            menuToggle.setAttribute('aria-expanded', nextExpanded);
+            menuToggle.setAttribute('aria-label', nextExpanded ? 'メニューを閉じる / Close Menu' : 'メニューを開く / Open Menu');
             navLinks.classList.toggle('active');
 
             // Animate toggle
