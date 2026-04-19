@@ -12,7 +12,31 @@ document.addEventListener('DOMContentLoaded', () => {
             const spans = menuToggle.querySelectorAll('span');
             spans.forEach(span => span.classList.toggle('open'));
         });
+
+        // Close menu on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans.forEach(span => span.classList.remove('open'));
+                menuToggle.focus();
+            }
+        });
     }
+
+    // Set aria-current="page" on active nav link
+    const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.nav-link').forEach(link => {
+        const href = link.getAttribute('href');
+        if (href === currentPath) {
+            link.setAttribute('aria-current', 'page');
+            link.classList.add('active');
+        } else {
+            link.removeAttribute('aria-current');
+            link.classList.remove('active');
+        }
+    });
 
     // Smooth scroll for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
