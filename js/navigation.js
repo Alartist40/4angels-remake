@@ -12,6 +12,16 @@ document.addEventListener('DOMContentLoaded', () => {
             const spans = menuToggle.querySelectorAll('span');
             spans.forEach(span => span.classList.toggle('open'));
         });
+
+        // Escape key to close mobile menu
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                navLinks.classList.remove('active');
+                const spans = menuToggle.querySelectorAll('span');
+                spans.forEach(span => span.classList.remove('open'));
+            }
+        });
     }
 
     // Smooth scroll for anchor links
