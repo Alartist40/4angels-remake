@@ -29,13 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
         // Toggle the expanded class
         tile.classList.toggle('expanded');
 
-        // Update button text
+        // Update button text and ARIA
         if (btn) {
             const originalText = btn.getAttribute('data-original-text') || '詳しく読む →';
             if (!btn.getAttribute('data-original-text')) {
                 btn.setAttribute('data-original-text', btn.textContent);
             }
             btn.innerHTML = isExpanded ? originalText : '閉じる ×';
+            btn.setAttribute('aria-expanded', !isExpanded);
         }
 
         // If expanding, scroll into view
@@ -119,6 +120,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 e.preventDefault();
                 focused.click();
             }
+        }
+
+        // Escape key to collapse any expanded bento tiles
+        if (e.key === 'Escape') {
+            const expandedTiles = document.querySelectorAll('.bento-tile.expanded');
+            expandedTiles.forEach(tile => {
+                toggleDisclosure(tile);
+            });
         }
     });
 });
