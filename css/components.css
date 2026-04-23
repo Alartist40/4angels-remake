@@ -37,6 +37,22 @@
     color: var(--secondary-color);
 }
 
+.nav-link.active {
+    color: var(--primary-color);
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--secondary-color);
+    border-radius: 2px;
+}
+
 /* Bento Tile Content */
 .tile-title {
     font-size: 1.25rem;
