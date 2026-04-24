@@ -4,3 +4,7 @@
 ## 2025-05-22 - Inline Bento Disclosure & Data Migration
 **Learning:** For a Bento-style grid, using inline disclosure (expansion) via CSS Grid transitions provides a superior UX to modals by maintaining the user's spatial context. Large-scale data migration (e.g., decades of archives) is best organized using year-based nested grids within these expanded tiles.
 **Action:** Replaced modal-based popups with an '.expanded' grid state that spans the full row width (grid-column: 1 / -1) and integrated 15+ years of PDF archives into a thematic publishing dashboard.
+
+## 2025-05-23 - Bilingual ARIA & Scope Management
+**Learning:** In bilingual interfaces, ARIA labels must toggle between languages to maintain accessibility for all users. Additionally, "micro-UX" tasks should be strictly limited to a single logical improvement; bundling multiple fixes (even related ones) increases the risk of PR rejection due to line-count constraints and complexity.
+**Action:** Implemented state-aware bilingual labels for the mobile menu and restricted the change to a single file to stay under the 50-line limit.

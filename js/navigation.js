@@ -6,11 +6,18 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.addEventListener('click', () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
             menuToggle.setAttribute('aria-expanded', !isExpanded);
+            menuToggle.setAttribute('aria-label', !isExpanded ? 'メニューを閉じる / Close Menu' : 'メニューを開く / Open Menu');
             navLinks.classList.toggle('active');
 
             // Animate toggle
             const spans = menuToggle.querySelectorAll('span');
             spans.forEach(span => span.classList.toggle('open'));
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+                menuToggle.click();
+            }
         });
     }
 
