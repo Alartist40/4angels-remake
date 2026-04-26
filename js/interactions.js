@@ -28,14 +28,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Toggle the expanded class
         tile.classList.toggle('expanded');
+        const nowExpanded = tile.classList.contains('expanded');
 
-        // Update button text
+        // Update button text and ARIA state
         if (btn) {
+            btn.setAttribute('aria-expanded', nowExpanded);
             const originalText = btn.getAttribute('data-original-text') || '詳しく読む →';
             if (!btn.getAttribute('data-original-text')) {
                 btn.setAttribute('data-original-text', btn.textContent);
             }
-            btn.innerHTML = isExpanded ? originalText : '閉じる ×';
+            btn.innerHTML = nowExpanded ? '閉じる ×' : originalText;
         }
 
         // If expanding, scroll into view
@@ -118,6 +120,18 @@ document.addEventListener('DOMContentLoaded', () => {
             if (focused && focused.classList.contains('toggle-btn')) {
                 e.preventDefault();
                 focused.click();
+            }
+        }
+
+        // Close expanded tiles on Escape
+        if (e.key === 'Escape') {
+            const expandedTile = document.querySelector('.bento-tile.expanded');
+            if (expandedTile) {
+                toggleDisclosure(expandedTile);
+
+                // Focus back the toggle button
+                const btn = expandedTile.querySelector('.toggle-btn');
+                if (btn) btn.focus();
             }
         }
     });

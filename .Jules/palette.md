@@ -4,3 +4,7 @@
 ## 2025-05-22 - Inline Bento Disclosure & Data Migration
 **Learning:** For a Bento-style grid, using inline disclosure (expansion) via CSS Grid transitions provides a superior UX to modals by maintaining the user's spatial context. Large-scale data migration (e.g., decades of archives) is best organized using year-based nested grids within these expanded tiles.
 **Action:** Replaced modal-based popups with an '.expanded' grid state that spans the full row width (grid-column: 1 / -1) and integrated 15+ years of PDF archives into a thematic publishing dashboard.
+
+## 2025-05-23 - [Keyboard-Accessible Bento Disclosures]
+**Learning:** In a dense Bento Grid, "Inline Disclosure" tiles need more than just toggling visibility. Keyboard users benefit significantly from an 'Escape' key listener that closes expanded content and restores focus to the trigger button, preventing them from getting "lost" deep within a long expanded tile.
+**Action:** Implement 'Escape' key support and dynamic `aria-expanded`/`aria-controls` synchronization for all expandable grid components.
