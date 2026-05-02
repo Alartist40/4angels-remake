@@ -50,16 +50,28 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentAudio = null;
     let currentBtn = null;
 
+    function updateAudioUI(btn, isPlaying) {
+        if (!btn) return;
+        const icon = btn.querySelector('.material-icons') || btn;
+        if (isPlaying) {
+            icon.innerHTML = 'pause';
+            btn.classList.add('playing');
+            btn.setAttribute('aria-label', '一時停止 / Pause');
+        } else {
+            icon.innerHTML = 'play_arrow';
+            btn.classList.remove('playing');
+            btn.setAttribute('aria-label', '再生 / Play');
+        }
+    }
+
     function playAudio(url, btn) {
-        if (currentAudio && currentAudio.src === url) {
+        if (currentAudio && currentAudio.src === encodeURI(url)) {
             if (currentAudio.paused) {
                 currentAudio.play();
-                btn.innerHTML = 'pause';
-                btn.classList.add('playing');
+                updateAudioUI(btn, true);
             } else {
                 currentAudio.pause();
-                btn.innerHTML = 'play_arrow';
-                btn.classList.remove('playing');
+                updateAudioUI(btn, false);
             }
             return;
         }
@@ -67,8 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (currentAudio) {
             currentAudio.pause();
             if (currentBtn) {
-                currentBtn.innerHTML = 'play_arrow';
-                currentBtn.classList.remove('playing');
+                updateAudioUI(currentBtn, false);
             }
         }
 
@@ -76,12 +87,17 @@ document.addEventListener('DOMContentLoaded', () => {
         currentBtn = btn;
 
         currentAudio.play();
-        btn.innerHTML = 'pause';
-        btn.classList.add('playing');
+        updateAudioUI(btn, true);
 
         currentAudio.onended = () => {
-            btn.innerHTML = 'play_arrow';
-            btn.classList.remove('playing');
+            updateAudioUI(btn, false);
+        };
+
+        currentAudio.onerror = () => {
+            console.error('Audio failed to load:', url);
+            updateAudioUI(btn, false);
+            currentAudio = null;
+            currentBtn = null;
         };
     }
 
@@ -106,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const url = btn.getAttribute('data-audio');
             if (url) {
                 e.preventDefault();
-                playAudio(url, btn.querySelector('.material-icons') || btn);
+                playAudio(url, btn);
             }
         }
     });

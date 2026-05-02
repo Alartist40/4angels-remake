@@ -4,3 +4,6 @@
 ## 2025-05-22 - Inline Bento Disclosure & Data Migration
 **Learning:** For a Bento-style grid, using inline disclosure (expansion) via CSS Grid transitions provides a superior UX to modals by maintaining the user's spatial context. Large-scale data migration (e.g., decades of archives) is best organized using year-based nested grids within these expanded tiles.
 **Action:** Replaced modal-based popups with an '.expanded' grid state that spans the full row width (grid-column: 1 / -1) and integrated 15+ years of PDF archives into a thematic publishing dashboard.
+## 2026-05-02 - [Audio Player UI State Synchronization]
+**Learning:** For interactive media elements, a centralized state update function is essential to keep icons, ARIA labels, and CSS classes in sync. Robustness also requires handling edge cases like audio load errors and ensuring source comparison accounts for browser URL encoding.
+**Action:** Implemented `updateAudioUI` in `js/interactions.js` to synchronize bilingual ARIA labels and icons, and added an `onerror` handler to the `Audio` object.
