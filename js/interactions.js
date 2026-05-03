@@ -50,39 +50,55 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentAudio = null;
     let currentBtn = null;
 
+    /**
+     * Synchronizes the UI state of an audio button.
+     * @param {HTMLElement} btn - The button or icon element.
+     * @param {boolean} isPlaying - Current playback state.
+     */
+    function updateAudioUI(btn, isPlaying) {
+        const icon = btn.querySelector('.material-icons') || btn;
+        const containerBtn = btn.closest('.play-audio') || btn;
+
+        icon.innerHTML = isPlaying ? 'pause' : 'play_arrow';
+        if (isPlaying) {
+            icon.classList.add('playing');
+            containerBtn.setAttribute('aria-label', '一時停止 / Pause');
+        } else {
+            icon.classList.remove('playing');
+            containerBtn.setAttribute('aria-label', '再生 / Play');
+        }
+    }
+
     function playAudio(url, btn) {
-        if (currentAudio && currentAudio.src === url) {
+        const encodedUrl = encodeURI(url);
+
+        if (currentAudio && currentAudio.src === encodedUrl) {
             if (currentAudio.paused) {
                 currentAudio.play();
-                btn.innerHTML = 'pause';
-                btn.classList.add('playing');
             } else {
                 currentAudio.pause();
-                btn.innerHTML = 'play_arrow';
-                btn.classList.remove('playing');
             }
             return;
         }
 
         if (currentAudio) {
             currentAudio.pause();
-            if (currentBtn) {
-                currentBtn.innerHTML = 'play_arrow';
-                currentBtn.classList.remove('playing');
-            }
+            updateAudioUI(currentBtn, false);
         }
 
         currentAudio = new Audio(url);
         currentBtn = btn;
 
-        currentAudio.play();
-        btn.innerHTML = 'pause';
-        btn.classList.add('playing');
-
-        currentAudio.onended = () => {
-            btn.innerHTML = 'play_arrow';
-            btn.classList.remove('playing');
+        currentAudio.onplay = () => updateAudioUI(btn, true);
+        currentAudio.onpause = () => updateAudioUI(btn, false);
+        currentAudio.onended = () => updateAudioUI(btn, false);
+        currentAudio.onerror = () => {
+            console.error('Audio failed to load:', url);
+            updateAudioUI(btn, false);
+            alert('音声の読み込みに失敗しました。 / Failed to load audio.');
         };
+
+        currentAudio.play();
     }
 
     // Event Delegation
@@ -106,7 +122,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const url = btn.getAttribute('data-audio');
             if (url) {
                 e.preventDefault();
-                playAudio(url, btn.querySelector('.material-icons') || btn);
+                playAudio(url, btn);
             }
         }
     });
