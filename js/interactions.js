@@ -50,39 +50,50 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentAudio = null;
     let currentBtn = null;
 
+    function updateAudioUI(btn, isPlaying) {
+        const icon = btn.querySelector('.material-icons') || btn;
+        if (isPlaying) {
+            icon.innerHTML = 'pause';
+            btn.classList.add('playing');
+            btn.setAttribute('aria-label', '一時停止 / Pause');
+        } else {
+            icon.innerHTML = 'play_arrow';
+            btn.classList.remove('playing');
+            btn.setAttribute('aria-label', '再生 / Play');
+        }
+    }
+
     function playAudio(url, btn) {
-        if (currentAudio && currentAudio.src === url) {
+        // Browser resolves audio.src as percent-encoded.
+        const encodedUrl = encodeURI(url);
+
+        if (currentAudio && currentAudio.src === encodedUrl) {
             if (currentAudio.paused) {
                 currentAudio.play();
-                btn.innerHTML = 'pause';
-                btn.classList.add('playing');
             } else {
                 currentAudio.pause();
-                btn.innerHTML = 'play_arrow';
-                btn.classList.remove('playing');
             }
             return;
         }
 
         if (currentAudio) {
             currentAudio.pause();
-            if (currentBtn) {
-                currentBtn.innerHTML = 'play_arrow';
-                currentBtn.classList.remove('playing');
-            }
+            if (currentBtn) updateAudioUI(currentBtn, false);
+            currentAudio.onplay = currentAudio.onpause = currentAudio.onended = currentAudio.onerror = null;
         }
 
         currentAudio = new Audio(url);
         currentBtn = btn;
 
-        currentAudio.play();
-        btn.innerHTML = 'pause';
-        btn.classList.add('playing');
-
-        currentAudio.onended = () => {
-            btn.innerHTML = 'play_arrow';
-            btn.classList.remove('playing');
+        currentAudio.onplay = () => updateAudioUI(btn, true);
+        currentAudio.onpause = () => updateAudioUI(btn, false);
+        currentAudio.onended = () => updateAudioUI(btn, false);
+        currentAudio.onerror = () => {
+            console.error('Audio failed to load:', url);
+            updateAudioUI(btn, false);
         };
+
+        currentAudio.play().catch(() => updateAudioUI(btn, false));
     }
 
     // Event Delegation
@@ -92,21 +103,19 @@ document.addEventListener('DOMContentLoaded', () => {
         // Toggle buttons (for inline expansion)
         if (target.classList.contains('toggle-btn') || target.closest('.toggle-btn')) {
             e.preventDefault();
-            const btn = target.classList.contains('toggle-btn') ? target : target.closest('.toggle-btn');
+            const btn = target.closest('.toggle-btn');
             const tileId = btn.getAttribute('data-target');
             const tile = document.getElementById(tileId) || btn.closest('.bento-tile');
-            if (tile) {
-                toggleDisclosure(tile);
-            }
+            if (tile) toggleDisclosure(tile);
         }
 
         // Audio buttons
         if (target.classList.contains('play-audio') || target.closest('.play-audio')) {
-            const btn = target.classList.contains('play-audio') ? target : target.closest('.play-audio');
+            const btn = target.closest('.play-audio');
             const url = btn.getAttribute('data-audio');
             if (url) {
                 e.preventDefault();
-                playAudio(url, btn.querySelector('.material-icons') || btn);
+                playAudio(url, btn);
             }
         }
     });
